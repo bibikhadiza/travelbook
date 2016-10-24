@@ -18,18 +18,19 @@ class DestinationsController < ApplicationController
 
 
   def new
-      if params[:id]
-        @destination = Destination.find_by(id: params[:id])
-        @destination.posts.build
-      else
-        @destination = Destination.new
-        @post = @destination.posts.build
+    if params[:id]
+      @destination = Destination.find_by(id: params[:id])
+      @post = @destination.posts.build
+    else
+      @destination = Destination.new
+      @post = @destination.posts.build
     end
   end
 
 
 
   def create
+    binding.pry
     @destination = Destination.find_or_create_by(name: params[:destination][:name])
     @destination.update(location_params)
     redirect_to users_path
@@ -55,6 +56,7 @@ class DestinationsController < ApplicationController
 
 
   def update
+    @destination = Destination.find_by(id: params[:id])
     @destination.update(location_params)
       redirect_to users_path
   end
