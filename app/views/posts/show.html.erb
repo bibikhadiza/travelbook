@@ -26,7 +26,7 @@ Content: <%= @post.content%>
 
 <%=image_tag @post.avatar.url%>
 <br></br>
-<% if current_user.id = @post.user_id %>
+<% if current_user.id == @post.user_id %>
   <%= button_to "Update Entry", edit_destination_path(@post.destination), params: { post_id: @post.id }%>
 
 <%end%>

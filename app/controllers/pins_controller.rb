@@ -9,8 +9,7 @@ class PinsController < ApplicationController
   end
 
   def index
-    user = User.find_by(id: params[:user_id])
-    binding.pry
+    user = User.find_by(id: params[:id])
     @active_pins = Pin.active_pins(user)
     @inactive_pins = Pin.inactive_pins(user)
   end
@@ -20,7 +19,7 @@ class PinsController < ApplicationController
     @pin = Pin.find_by(id: params[:id])
     @pin.update(status: false)
     flash[:notice] = "You have visited #{@pin.post.destination.name}"
-    redirect_to user_pins(current_user)
+    redirect_to user_pins_path(current_user)
   end
 
 
