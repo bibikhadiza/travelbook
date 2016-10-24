@@ -3,6 +3,8 @@
     <%= submit_tag "Search" %>
 <% end %>
 
+<%= button_to "My Pins", user_pins_path(current_user), method: :get %>
+
 <% current_user.posts.each do |post| %>
 <a href="/posts/<%= post.id %>"><%=post.title %></a>
 <br>

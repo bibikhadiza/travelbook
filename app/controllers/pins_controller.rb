@@ -9,6 +9,10 @@ class PinsController < ApplicationController
   end
 
   def index
+    user = User.find_by(id: params[:user_id])
+    Pin.active_pins(user)
+  binding.pry
+
   end
 
 

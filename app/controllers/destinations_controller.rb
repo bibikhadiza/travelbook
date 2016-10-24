@@ -24,15 +24,13 @@ class DestinationsController < ApplicationController
       else
         @destination = Destination.new
         @post = @destination.posts.build
-    # @post = @destination.posts.build(destination_id: @destination.id)
-    # @post = current_user.posts.build(destination_id: @destination.id)
     end
   end
 
 
   def show
     @destination = Destination.find_by(id: params[:id])
-    if @destination && !@destination.posts.empty?
+    if @destination && @destination.posts.present?
       @destination_posts = @destination.posts
     else
       flash[:notice] = "This destination does not have any posts"
