@@ -6,9 +6,12 @@ class DestinationsController < ApplicationController
   def index
     if params[:search]
       @destination = Destination.search(params[:search])
-      redirect_to destination_path(@destination)
-    else
-      @destination = Destination.all
+      if @destination
+        redirect_to destination_path(@destination)
+      else
+        flash[:notice] = "This destination does not exist. Please search another destination"
+        redirect_to users_path
+      end
     end
   end
 
@@ -29,11 +32,10 @@ class DestinationsController < ApplicationController
 
   def show
     @destination = Destination.find_by(id: params[:id])
-    if @destination
+    if @destination && !@destination.posts.empty?
       @destination_posts = @destination.posts
     else
-      flash[:notice] = "This destination does not exist. Please search another destination"
-      redirect_to users_path
+      flash[:notice] = "This destination does not have any posts"
     end
   end
 

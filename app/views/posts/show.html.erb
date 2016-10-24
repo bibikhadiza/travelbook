@@ -1,5 +1,7 @@
 
-  <%= button_to "Pin Post", new_user_pin_path(current_user), method: :get%>
+<% if !@pin %>
+  <%= button_to "Pin Post", new_post_pin_path(@post), method: :get%>
+<%end%>
 
 
 <h2>Title of Entry: <%= @post.title %></h2>
