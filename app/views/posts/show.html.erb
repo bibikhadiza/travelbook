@@ -1,3 +1,7 @@
+
+  <%= button_to "Pin Post", new_user_pin_path(current_user), method: :get%>
+
+
 <h2>Title of Entry: <%= @post.title %></h2>
 
 <h3> Trip to: <%= @post.destination.name %> </h3>

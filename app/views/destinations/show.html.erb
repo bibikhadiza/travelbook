@@ -1,8 +1,5 @@
-
-<%= @destination.name %>
-<% @destination.posts.each do |post| %>
-  <a href="/posts/<%= post.id %>"><%=post.title %></a>
-  <br>
-  <%= image_tag post.avatar.url %>
-
+<% if @destination_posts.present? %>
+<% @destination_posts.each do |post| %>
+<%= link_to post.title, post_path(post) %>
+<%end%>
 <%end%>

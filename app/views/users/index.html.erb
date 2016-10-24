@@ -1,5 +1,7 @@
-<%= link_to "Create A New Entry", new_destination_path %>
-<br></br>
+<%= form_tag(destinations_path, :method => "get", id: "search-form") do %>
+  <%= text_field_tag :search, params[:search], placeholder: "Search Destinations" %>
+    <%= submit_tag "Search" %>
+<% end %>
 
 <% current_user.posts.each do |post| %>
 <a href="/posts/<%= post.id %>"><%=post.title %></a>

@@ -5,16 +5,15 @@ Rails.application.routes.draw do
   resources :pins
   resources :posts
   get '/destinations/:id/new' => "destinations#new"
-  # post "/destinations/:id" => "destinations#update", :as => destination_post
 
-  # resources :destinations, only: [:show] do
-  #   resources :posts, only: [:edit]
-  # end
+  post '/users/:id/pins' => "pins#users"
 
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+  resources :users, only: [:show] do
 
+    resources :pins, only: [:new, :index]
+  end
 
-  root to: "application#home"
   get '/users' => "users#index"
   devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  root to: "application#home"
 end

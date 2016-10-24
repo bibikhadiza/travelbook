@@ -1,24 +1,40 @@
 class DestinationsController < ApplicationController
   before_action :check_logged_in?, :find_destination
 
+
+
   def index
+    if params[:search]
+      @destination = Destination.search(params[:search])
+      redirect_to destination_path(@destination)
+    else
+      @destination = Destination.all
+    end
   end
+
+
 
   def new
       if params[:id]
-      @destination = Destination.find_by(id: params[:id])
-      @destination.posts.build
+        @destination = Destination.find_by(id: params[:id])
+        @destination.posts.build
       else
         @destination = Destination.new
-        @destination.posts.build
+        @post = @destination.posts.build
     # @post = @destination.posts.build(destination_id: @destination.id)
     # @post = current_user.posts.build(destination_id: @destination.id)
-  end
+    end
   end
 
 
   def show
     @destination = Destination.find_by(id: params[:id])
+    if @destination
+      @destination_posts = @destination.posts
+    else
+      flash[:notice] = "This destination does not exist. Please search another destination"
+      redirect_to users_path
+    end
   end
 
   def create
@@ -51,6 +67,8 @@ class DestinationsController < ApplicationController
   def location_params
     params.require(:destination).permit(:name, :posts_attributes => [:title, :total_cost, :flight, :climate, :car_rental, :diet, :content, :user_id, :avatar, :id])
   end
+
+
 
   def find_destination
     @destination = Destination.find_by(id: params[:id])
