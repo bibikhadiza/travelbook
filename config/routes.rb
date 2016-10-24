@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :pins
   resources :posts
   get '/destinations/:id/new' => "destinations#new"
+  # post "/destinations/:id" => "destinations#update", :as => destination_post
 
   # resources :destinations, only: [:show] do
   #   resources :posts, only: [:edit]

@@ -1,0 +1,32 @@
+<h2> Edit a travel entry for <%=@destination.name %> </h2>
+<%= form_for @destination do |f| %>
+
+  <%= f.fields_for :posts, @post do |post_builder|%>
+  <%= post_builder.hidden_field :id, :value => @post.id %>
+  <%= post_builder.hidden_field :user_id, :value => current_user.id %>
+    Post Title: <%=post_builder.text_field :title %>
+    <br>
+    <br>
+    <h3> Please Include Total Cost of Trip </h3>
+    Total Cost<%= post_builder.text_field :total_cost %>
+    <br>
+    <h3>Please Rate the Following from 1-5 </h3>
+    <br>
+    How was your flights? <%= post_builder.text_field :flight %>
+    <br>
+    How great was the climate? <%=post_builder.text_field :climate %>
+    <br>
+    Was the car rental services Awesome? <%=post_builder.text_field :car_rental %>
+    <br>
+    How amazing was the food? <%=post_builder.text_field :diet %>
+   <br></br>
+   <h3> Share all the amazing experiences you had below!!! </h3>
+   <%=post_builder.text_area :content %>
+   <%= post_builder.file_field :avatar %>
+   <br></br>
+   <%end%>
+
+
+
+   <%=f.submit "Update Entry" %>
+   <%end%>

@@ -1,0 +1,8 @@
+
+<%= @destination.name %>
+<% @destination.posts.each do |post| %>
+  <a href="/posts/<%= post.id %>"><%=post.title %></a>
+  <br>
+  <%= image_tag post.avatar.url %>
+
+<%end%>

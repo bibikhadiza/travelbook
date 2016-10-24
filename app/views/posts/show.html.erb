@@ -1,0 +1,25 @@
+<h2>Title of Entry: <%= @post.title %></h2>
+
+<h3> Trip to: <%= @post.destination.name %> </h3>
+<br>
+Cost of Trip : <%= @post.total_cost%>
+<br>
+<h3>Ratings for Trip Factors</h3>
+<br>
+Flight: <%= @post.flight%>
+<br>
+Climate: <%= @post.climate%>
+<br>
+Car_rental: <%= @post.car_rental %>
+<br>
+Food: <%= @post.diet %>
+<br>
+Content: <%= @post.content%>
+<br></br>
+
+<%=image_tag @post.avatar.url%>
+<br></br>
+<% if current_user.id = @post.user_id %>
+  <%= button_to "Update Entry", edit_destination_path(@post.destination), params: { post_id: @post.id }%>
+
+<%end%>

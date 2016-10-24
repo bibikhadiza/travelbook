@@ -1,0 +1,22 @@
+<%= link_to "Create A New Entry", new_destination_path %>
+<br></br>
+
+<% current_user.posts.each do |post| %>
+<a href="/posts/<%= post.id %>"><%=post.title %></a>
+<br>
+<% if post.avatar%>
+<%=image_tag post.avatar.url %>
+<%end%>
+<%end%>
+<br>
+</br>
+
+
+
+<div class="dropdown">
+  <button class="dropbtn">Check into Destination</button>
+  <div class="dropdown-content">
+    <%Destination.all.each do |des|%>
+    <a href="/destinations/<%=des.id%>/new"><%=des.name%></a>
+    <%end%>
+    <a href="/destinations/new">Create A new Destination</a>
