@@ -1,0 +1,13 @@
+<h2>Pinned Destinations I Want to Visit</h2>
+<br></br>
+<% @active_pins.all.each do |pin| %>
+  <%= link_to pin.post.title, post_path(pin.post)%> <%= button_to "Visited", edit_pin_path(pin), method: :get %>
+  <br></br>
+<%end%>
+
+
+<h2>Pinned Destinations I have Visited</h2>
+<br></br>
+<% @inactive_pins.all.each do |pin| %>
+  <%= link_to pin.post.title, post_path(pin.post)%>
+<%end%>

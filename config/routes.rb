@@ -12,9 +12,11 @@ Rails.application.routes.draw do
     resources :pins, only: [:new, :index]
   end
 
-  resources :users, only: [:show] do
-    resources :pins, only: [:index]
-  end
+  # resources :users, only: [:show] do
+  #   resources :pins, only: [:index]
+  # end
+
+  get "/users/:id/pins" => "pins#index", as: "user_pins" 
 
 
 

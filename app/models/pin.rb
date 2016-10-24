@@ -7,14 +7,4 @@ class Pin < ActiveRecord::Base
 
 
 
-  # def self.active_pins(current_user)
-  #   where(:status => true, :user_id => current_user.id )
-  # end
-
-  # def self.inactive_pins(current_user)
-  #   where(:status => false, :user_id => current_user.id )
-  # end
-
-
-
 end

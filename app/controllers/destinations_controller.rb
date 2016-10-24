@@ -28,6 +28,13 @@ class DestinationsController < ApplicationController
   end
 
 
+
+  def create
+    @destination = Destination.find_or_create_by(name: params[:destination][:name])
+    @destination.update(location_params)
+    redirect_to users_path
+  end
+
   def show
     @destination = Destination.find_by(id: params[:id])
     if @destination && @destination.posts.present?
@@ -37,11 +44,7 @@ class DestinationsController < ApplicationController
     end
   end
 
-  def create
-    @destination = Destination.find_or_create_by(name: params[:destination][:name])
-    @destination.update(location_params)
-    redirect_to users_path
-  end
+
 
   def edit
     @destination = Destination.find_by(id: params[:id])

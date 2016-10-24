@@ -1,6 +1,7 @@
-
-<% if !@pin %>
-  <%= button_to "Pin Post", new_post_pin_path(@post), method: :get%>
+<% if @post.user_id != current_user.id %>
+  <% if !@pin %>
+    <%= button_to "Pin Post", new_post_pin_path(@post), method: :get%>
+  <%end%>
 <%end%>
 
 
