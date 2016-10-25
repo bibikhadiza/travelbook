@@ -2,7 +2,8 @@ class Destination < ActiveRecord::Base
   has_many :posts
   has_many :pins, through: :posts
   has_many :users, through: :posts
-  
+  validates :name, presence: true, :allow_blank => false
+
 
 
 

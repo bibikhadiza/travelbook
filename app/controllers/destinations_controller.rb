@@ -30,11 +30,17 @@ class DestinationsController < ApplicationController
 
 
   def create
-    binding.pry
-    @destination = Destination.find_or_create_by(name: params[:destination][:name])
-    @destination.update(location_params)
-    redirect_to users_path
+    @destination = Destination.find_or_initialize_by(name: params[:destination][:name])
+     if @destination.update(location_params)
+       redirect_to users_path
+    else
+      @post = @destination.posts.build
+      render "new"
+    end
   end
+
+
+
 
   def show
     @destination = Destination.find_by(id: params[:id])
@@ -48,6 +54,7 @@ class DestinationsController < ApplicationController
 
 
   def edit
+
     @destination = Destination.find_by(id: params[:id])
     @post = Post.find_by(id: params[:post_id])
 
@@ -57,8 +64,12 @@ class DestinationsController < ApplicationController
 
   def update
     @destination = Destination.find_by(id: params[:id])
-    @destination.update(location_params)
+    if @destination.update(location_params)
       redirect_to users_path
+    else
+      @post = @destination.posts.build
+      render "new"
+    end
   end
 
 
@@ -72,6 +83,7 @@ class DestinationsController < ApplicationController
   def location_params
     params.require(:destination).permit(:name, :posts_attributes => [:title, :total_cost, :flight, :climate, :car_rental, :diet, :content, :user_id, :avatar, :id])
   end
+
 
 
 
