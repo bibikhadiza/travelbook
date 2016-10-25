@@ -1,4 +1,4 @@
-<% if @destination.errors.any? %>
+<!-- <% if @destination.errors.any? %>
 <div id="error_explanation">
   <h2>
     <%= pluralize(@destination.errors.count, "error") %>
@@ -12,7 +12,7 @@
   </ul>
 </div>
 <% end %>
-<%binding.pry%>
+
 
 <% if @post.errors.any? %>
 <div id="error_explanation">
@@ -30,12 +30,17 @@
 <% end %>
 
 
-<h2> Edit a travel entry for <%=@destination.name %> </h2>
-<%= form_for @destination do |f| %>
 
-  <%= f.fields_for :posts, @post do |post_builder|%>
-  <%= post_builder.hidden_field :id, :value => @post.id  if @post.id %>
-  <%= post_builder.hidden_field :user_id, :value => current_user.id %>
+<h2> Create a travel entry for <%=@destination.name%> </h2>
+
+  <%= form_for(@destination) do |f| %>
+
+    Create A Destination Name <%= f.text_field :name if !@destination.id%>
+    <%binding.pry%>
+    <br></br>
+    <%= f.fields_for :posts, @post do |post_builder|%>
+    <%= post_builder.hidden_field :id, :value => @post.id  if @post.id %>
+    <%= post_builder.hidden_field :user_id, :value => current_user.id %>
     Post Title: <%=post_builder.text_field :title %>
     <br>
     <br>
@@ -60,5 +65,6 @@
 
 
 
-   <%=f.submit "Update Entry" %>
-   <%end%>
+
+   <%=f.submit "Create Entry" %>
+   <%end%> -->

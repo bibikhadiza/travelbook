@@ -34,7 +34,10 @@ class DestinationsController < ApplicationController
      if @destination.update(location_params)
        redirect_to users_path
     else
+      binding.pry
       @post = @destination.posts.build
+      # @post = Post.new(params[:destination][:posts_attributes])
+      binding.pry
       render "new"
     end
   end
@@ -64,14 +67,29 @@ class DestinationsController < ApplicationController
 
   def update
     @destination = Destination.find_by(id: params[:id])
-    if @destination.update(location_params)
-      binding.pry
-      redirect_to users_path
-    else
-      @post = @destination.posts.build
-      render "new"
-    end
+    @post = Post.find_by(id: params[:destination][:posts_attributes]["0"][:id])
+      if @post
+      # @post = Post.find_by(id: params[:destination][:posts_attributes]["0"][:id])
+        x = params[:destination][:posts_attributes]["0"]
+        if @destination.update(location_params) && @post.update(title: x[:title], total_cost: x[:total_cost], flight: x[:flight], climate: x[:climate], car_rental: x[:car_rental], diet: x[:diet], content: x[:content])
+          redirect_to users_path
+        else
+        binding.pry
+          @post = @destination.posts.build
+          render "edit"
+        end
+      else
+        binding.pry
+        if @destination.update(location_params)
+          redirect_to users_path
+        else
+          binding.pry
+          @post = @destination.posts.build
+          render "edit"
+        end
+      end
   end
+
 
 
 

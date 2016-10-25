@@ -35,7 +35,8 @@
 
   <%= form_for(@destination) do |f| %>
 
-    Create A Destination Name <%= f.text_field :name%>
+    <%= f.label "Create Destination Name" if !@destination.id %>
+    <%= f.text_field :name if !@destination.id%>
 
     <br></br>
     <%= f.fields_for :posts, @post do |post_builder|%>
