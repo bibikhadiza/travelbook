@@ -65,6 +65,7 @@ class DestinationsController < ApplicationController
   def update
     @destination = Destination.find_by(id: params[:id])
     if @destination.update(location_params)
+      binding.pry
       redirect_to users_path
     else
       @post = @destination.posts.build

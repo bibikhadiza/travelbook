@@ -1,3 +1,45 @@
+
+<% if @destination.errors.any? %>
+<div id="error_explanation">
+  <h2>
+    <%= pluralize(@destination.errors.count, "error") %>
+    prohibited this article from being saved:
+  </h2>
+
+  <ul>
+    <% @destination.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+
+<% if @post.errors.any? %>
+<div id="error_explanation">
+  <h2>
+    <%= pluralize(@post.errors.count, "error") %>
+    prohibited this article from being saved:
+  </h2>
+
+  <ul>
+    <% @post.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+    <% end %>
+  </ul>
+</div>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
 <h2> Edit a travel entry for <%=@destination.name %> </h2>
 <%= form_for @destination do |f| %>
 
