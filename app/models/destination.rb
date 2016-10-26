@@ -12,7 +12,7 @@ class Destination < ActiveRecord::Base
     post_attributes.values.each do |post_attribute|
       if post_attribute[:id].present?
         post = Post.find_by(id: post_attribute[:id])
-          result = false if post.update(post_attribute) == false
+        result = false if post.update(post_attribute) == false
       else
         self.posts.build(post_attribute)
       end

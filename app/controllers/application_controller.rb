@@ -11,7 +11,7 @@ class ApplicationController < ActionController::Base
 
   def home
     if user_signed_in?
-      redirect_to users_path
+      redirect_to user_path(current_user)
     end
   end
 

@@ -10,7 +10,7 @@ class DestinationsController < ApplicationController
         redirect_to destination_path(@destination)
       else
         flash[:notice] = "This destination does not exist. Please search another destination"
-        redirect_to users_path
+        redirect_to user_path(current_user)
       end
     end
   end
@@ -31,7 +31,7 @@ class DestinationsController < ApplicationController
   def create
     @destination = Destination.find_or_initialize_by(name: params[:destination][:name])
     if @destination.update(location_params)
-      redirect_to users_path
+      redirect_to user_path(current_user)
     else
       render "new"
     end
@@ -62,13 +62,13 @@ class DestinationsController < ApplicationController
       if @post
         x = params[:destination][:posts_attributes]["0"]
         if @destination.update(location_params) && @post.update(title: x[:title], total_cost: x[:total_cost], flight: x[:flight], climate: x[:climate], car_rental: x[:car_rental], diet: x[:diet], content: x[:content])
-          redirect_to users_path
+          redirect_to user_path(current_user)
         else
           render "edit"
         end
       else
         if @destination.update(location_params)
-          redirect_to users_path
+          redirect_to user_path(current_user)
         else
           render "edit"
         end
