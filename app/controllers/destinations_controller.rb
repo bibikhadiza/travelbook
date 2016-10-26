@@ -1,5 +1,5 @@
 class DestinationsController < ApplicationController
-  before_action :check_logged_in?, :find_destination
+  before_action :find_destination
 
 
 
@@ -19,11 +19,10 @@ class DestinationsController < ApplicationController
 
   def new
     if params[:id]
-      @destination = Destination.find_by(id: params[:id])
       @destination.posts.build
     else
       @destination = Destination.new
-      @destination.posts.build
+        @destination.posts.build
     end
   end
 
@@ -31,11 +30,9 @@ class DestinationsController < ApplicationController
 
   def create
     @destination = Destination.find_or_initialize_by(name: params[:destination][:name])
-
-     if @destination.update(location_params)
-       redirect_to users_path
+    if @destination.update(location_params)
+      redirect_to users_path
     else
-      
       render "new"
     end
   end
@@ -44,7 +41,6 @@ class DestinationsController < ApplicationController
 
 
   def show
-    @destination = Destination.find_by(id: params[:id])
     if @destination && @destination.posts.present?
       @destination_posts = @destination.posts
     else
@@ -55,8 +51,6 @@ class DestinationsController < ApplicationController
 
 
   def edit
-
-    @destination = Destination.find_by(id: params[:id])
     @post = Post.find_by(id: params[:post_id])
 
   end
@@ -64,31 +58,22 @@ class DestinationsController < ApplicationController
 
 
   def update
-    @destination = Destination.find_by(id: params[:id])
     @post = Post.find_by(id: params[:destination][:posts_attributes]["0"][:id])
       if @post
         x = params[:destination][:posts_attributes]["0"]
         if @destination.update(location_params) && @post.update(title: x[:title], total_cost: x[:total_cost], flight: x[:flight], climate: x[:climate], car_rental: x[:car_rental], diet: x[:diet], content: x[:content])
           redirect_to users_path
         else
-          # @post = @destination.posts.build
           render "edit"
         end
       else
         if @destination.update(location_params)
           redirect_to users_path
         else
-          # @post = @destination.posts.build
           render "edit"
         end
       end
   end
-
-
-
-
-
-
 
 
   private
@@ -96,10 +81,6 @@ class DestinationsController < ApplicationController
   def location_params
     params.require(:destination).permit(:name, :posts_attributes => [:title, :total_cost, :flight, :climate, :car_rental, :diet, :content, :user_id, :avatar, :id])
   end
-
-
-
-
 
 
   def find_destination

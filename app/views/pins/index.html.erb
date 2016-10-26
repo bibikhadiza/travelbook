@@ -2,7 +2,7 @@
 <br></br>
 <% @active_pins.all.each do |pin| %>
   <%= link_to pin.post.title, post_path(pin.post)%> <%= button_to "Visited", edit_pin_path(pin), method: :get %>
-  <br></br>
+    <br></br>
 <%end%>
 
 

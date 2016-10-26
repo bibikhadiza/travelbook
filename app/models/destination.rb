@@ -17,7 +17,6 @@ class Destination < ActiveRecord::Base
         self.posts.build(post_attribute)
       end
       result
-
     end
   end
 
@@ -29,8 +28,8 @@ class Destination < ActiveRecord::Base
   end
 
   def self.search(search)
-  where("name LIKE ?", "%#{search}%").first
-end
+    where("name LIKE ?", "%#{search}%").first
+  end
 
 
 

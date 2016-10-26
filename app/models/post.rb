@@ -3,10 +3,10 @@ class Post < ActiveRecord::Base
   belongs_to :user
   belongs_to :destination
   has_many :pins
-  validates :car_rental, presence: true
-  validates :title, :flight, :total_cost, :diet, :climate, :content, presence: true
+  validates :title, :flight, :total_cost, :diet, :climate, :content, :car_rental, presence: true
   validates :avatar, presence: true, allow_blank: false
-  validates_presence_of :car_rental, :flight, :diet, :climate, :numericality => {:greater_than => 1, :less_than => 6}
+  validates_numericality_of :car_rental, :flight, :diet, :climate, :greater_than_or_equal_to => 1, :less_than_or_equal_to => 5
+
 
 
 
