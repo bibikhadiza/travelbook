@@ -9,7 +9,7 @@
 <a href="/posts/<%= post.id %>"><%=post.title %></a>
 <br>
 <% if post.avatar%>
-<%=image_tag post.avatar.url %>
+<%=image_tag post.avatar.url, size: "5X5" %>
 <%end%>
 <%end%>
 <br>

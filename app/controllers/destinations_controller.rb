@@ -20,10 +20,10 @@ class DestinationsController < ApplicationController
   def new
     if params[:id]
       @destination = Destination.find_by(id: params[:id])
-      @post = @destination.posts.build
+      @destination.posts.build
     else
       @destination = Destination.new
-      @post = @destination.posts.build
+      @destination.posts.build
     end
   end
 
@@ -31,13 +31,11 @@ class DestinationsController < ApplicationController
 
   def create
     @destination = Destination.find_or_initialize_by(name: params[:destination][:name])
+
      if @destination.update(location_params)
        redirect_to users_path
     else
-      binding.pry
-      @post = @destination.posts.build
-      # @post = Post.new(params[:destination][:posts_attributes])
-      binding.pry
+      
       render "new"
     end
   end
@@ -69,22 +67,18 @@ class DestinationsController < ApplicationController
     @destination = Destination.find_by(id: params[:id])
     @post = Post.find_by(id: params[:destination][:posts_attributes]["0"][:id])
       if @post
-      # @post = Post.find_by(id: params[:destination][:posts_attributes]["0"][:id])
         x = params[:destination][:posts_attributes]["0"]
         if @destination.update(location_params) && @post.update(title: x[:title], total_cost: x[:total_cost], flight: x[:flight], climate: x[:climate], car_rental: x[:car_rental], diet: x[:diet], content: x[:content])
           redirect_to users_path
         else
-        binding.pry
-          @post = @destination.posts.build
+          # @post = @destination.posts.build
           render "edit"
         end
       else
-        binding.pry
         if @destination.update(location_params)
           redirect_to users_path
         else
-          binding.pry
-          @post = @destination.posts.build
+          # @post = @destination.posts.build
           render "edit"
         end
       end
@@ -102,6 +96,8 @@ class DestinationsController < ApplicationController
   def location_params
     params.require(:destination).permit(:name, :posts_attributes => [:title, :total_cost, :flight, :climate, :car_rental, :diet, :content, :user_id, :avatar, :id])
   end
+
+
 
 
 

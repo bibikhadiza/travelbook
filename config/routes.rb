@@ -2,8 +2,8 @@ Rails.application.routes.draw do
 
   resources :destinations
   post '/destinations/:id/edit' => "destinations#edit"
-  resources :pins
-  resources :posts
+  resources :pins, only: [:edit]
+  # resources :posts, only: [:show]
   get '/destinations/:id/new' => "destinations#new"
 
   post '/users/:id/pins' => "pins#users"
@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   #   resources :pins, only: [:index]
   # end
 
-  get "/users/:id/pins" => "pins#index", as: "user_pins" 
+  get "/users/:id/pins" => "pins#index", as: "user_pins"
 
 
 

@@ -6,10 +6,10 @@ class Destination < ActiveRecord::Base
 
 
 
+
   def posts_attributes=(post_attributes)
     result = true
     post_attributes.values.each do |post_attribute|
-      binding.pry
       if post_attribute[:id].present?
         post = Post.find_by(id: post_attribute[:id])
           result = false if post.update(post_attribute) == false
