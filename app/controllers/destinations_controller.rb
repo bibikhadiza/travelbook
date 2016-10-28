@@ -56,7 +56,6 @@ class DestinationsController < ApplicationController
   end
 
 
-
   def update
     @post = Post.find_by(id: params[:destination][:posts_attributes]["0"][:id])
       if @post
@@ -70,11 +69,11 @@ class DestinationsController < ApplicationController
         if @destination.update(location_params)
           redirect_to user_path(current_user)
         else
+          @destination.posts.build
           render "edit"
         end
       end
   end
-
 
   private
 
