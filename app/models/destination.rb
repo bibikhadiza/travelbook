@@ -21,6 +21,14 @@ class Destination < ActiveRecord::Base
   end
 
 
+  # def self.most_pins
+  #   arr = []
+  #   Destination.all.each do |des|
+  #     arr << des.pins
+  #   end
+  #   @result = result = arr.sort.last
+  # end
+
 
 
   def posts_attributes
@@ -30,7 +38,6 @@ class Destination < ActiveRecord::Base
   def self.search(search)
     where("name LIKE ?", "%#{search}%").first
   end
-
 
 
 
