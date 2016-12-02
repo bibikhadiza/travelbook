@@ -17,25 +17,25 @@ class DestinationsController < ApplicationController
 
 
 
-  def new
-    if params[:id]
-      @destination.posts.build
-    else
-      @destination = Destination.new
-        @destination.posts.build
-    end
-  end
+  # def new
+  # if params[:id]
+  #     redirect_to new_post_path(@destination)
+  #   else
+  #     @destination = Destination.new
+  #     @destination.posts.build
+  #   end
+  # end
 
 
 
-  def create
-    @destination = Destination.find_or_initialize_by(name: params[:destination][:name])
-    if @destination.update(location_params)
-      redirect_to user_path(current_user)
-    else
-      render "new"
-    end
-  end
+  # def create
+  #   @destination = Destination.find_by(name: params[:destination][:name])
+  #   if @destination.update(location_params)
+  #     redirect_to user_path(current_user)
+  #   else
+  #     render "new"
+  #   end
+  # end
 
 
 
@@ -50,30 +50,35 @@ class DestinationsController < ApplicationController
 
 
 
-  def edit
-    @post = Post.find_by(id: params[:post_id])
-
-  end
-
-
-  def update
-    @post = Post.find_by(id: params[:destination][:posts_attributes]["0"][:id])
-      if @post
-        x = params[:destination][:posts_attributes]["0"]
-        if @destination.update(location_params) && @post.update(title: x[:title], total_cost: x[:total_cost], flight: x[:flight], climate: x[:climate], car_rental: x[:car_rental], diet: x[:diet], content: x[:content])
-          redirect_to user_path(current_user)
-        else
-          render "edit"
-        end
-      else
-        if @destination.update(location_params)
-          redirect_to user_path(current_user)
-        else
-          @destination.posts.build
-          render "edit"
-        end
-      end
-  end
+  # def edit
+  #   binding.pry
+  #   @post = Post.find_by(id: params[:post_id])
+  #   if @post.user != current_user
+  #     redirect_to new_post_path
+  #   else
+  #     render "edit"
+  #   end
+  # end
+  #
+  #
+  # def update
+  #   @post = Post.find_by(id: params[:destination][:posts_attributes]["0"][:id])
+  #     if @post
+  #       x = params[:destination][:posts_attributes]["0"]
+  #       if @destination.update(location_params) && @post.update(title: x[:title], total_cost: x[:total_cost], flight: x[:flight], climate: x[:climate], car_rental: x[:car_rental], diet: x[:diet], content: x[:content])
+  #         redirect_to user_path(current_user)
+  #       else
+  #         render "edit"
+  #       end
+  #     else
+  #       if @destination.update(location_params)
+  #         redirect_to user_path(current_user)
+  #       else
+  #         @destination.posts.build
+  #         render "edit"
+  #       end
+  #     end
+  # end
 
   private
 

@@ -1,6 +1,4 @@
 
-
-
 <%= form_tag(destinations_path, :method => "get", id: "search-form") do %>
   <%= text_field_tag :search, params[:search], placeholder: "Search Destinations" %>
     <%= submit_tag "Search" %>
@@ -19,10 +17,14 @@
 </br>
 
 
+<br>
+</br>
+
+
 <div class="dropdown">
   <button class="dropbtn">Check into Destination</button>
   <div class="dropdown-content">
     <%Destination.all.each do |des|%>
-    <a href="/destinations/<%=des.id%>/new"><%=des.name%></a>
+    <a href="/destinations/<%=des.id%>/posts/new"><%=des.name%></a>
     <%end%>
-    <a href="/destinations/new">Create A new Destination</a>
+    <a href="/posts/new">Create A new Destination</a>

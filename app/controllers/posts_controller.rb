@@ -1,15 +1,27 @@
 class PostsController < ApplicationController
 
-  def new
 
+
+  def new
+    binding.pry
+    if params[:id]
+      @destination = Destination.find_by(id: params[:id])
+      @destination.posts.build
+    else
+      @destination = Destination.new
+      @destination.posts.build
+    end
   end
 
 
 
-
-
   def create
-
+    @destination = Destination.find_by(name: params[:destination][:name])
+    if @destination.update(location_params)
+      redirect_to user_path(current_user)
+    else
+      render "new"
+    end
   end
 
 
@@ -27,9 +39,40 @@ class PostsController < ApplicationController
 
 
 
+  def edit
+    binding.pry
+    @post = Post.find_by(id: params[:id])
+    @destination = @post.destination
+  end
+
+
+  def update
+    @post = Post.find_by(id: params[:destination][:posts_attributes]["0"][:id])
+    @destination = Destination.find_by(name: params[:destination][:name])
+      if @post
+        x = params[:destination][:posts_attributes]["0"]
+        if @destination.update(location_params) && @post.update(title: x[:title], total_cost: x[:total_cost], flight: x[:flight], climate: x[:climate], car_rental: x[:car_rental], diet: x[:diet], content: x[:content])
+          redirect_to user_path(current_user)
+        else
+          render "edit"
+        end
+      else
+        if @destination.update(location_params)
+          redirect_to user_path(current_user)
+        else
+          @destination.posts.build
+          render "edit"
+        end
+      end
+  end
 
 
 
+  private
+
+  def location_params
+    params.require(:destination).permit(:name, :posts_attributes => [:title, :total_cost, :flight, :climate, :car_rental, :diet, :content, :user_id, :avatar, :id])
+  end
 
 
 

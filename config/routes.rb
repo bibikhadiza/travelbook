@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
 
-  resources :destinations
-  post '/destinations/:id/edit' => "destinations#edit"
-  resources :pins, only: [:edit]
-  get '/destinations/:id/new' => "destinations#new"
+  resources :destinations, :posts
+  post '/post/:id/edit' => "posts#edit", as: "edit_post_button"
 
+  resources :pins, only: [:edit]
+  get '/destinations/:id/posts/new' => "posts#new"
   post '/users/:id/pins' => "pins#users"
 
   resources :posts, only: [:show] do

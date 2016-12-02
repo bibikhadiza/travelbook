@@ -1,4 +1,3 @@
-
 <% if @post.user_id != current_user.id %>
   <% if !@pin %>
     <%= button_to "Pin Post", new_post_pin_path(@post), method: :get%>
@@ -28,6 +27,7 @@ Content: <%= @post.content%>
 <%=image_tag @post.avatar.url%>
 <br></br>
 <% if current_user.id == @post.user_id %>
-  <%= button_to "Update Entry", edit_destination_path(@post.destination), params: { post_id: @post.id }%>
+<%binding.pry%>
+  <%= button_to "Update Entry", edit_post_button_path(@post)%>
 
 <%end%>
