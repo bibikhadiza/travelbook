@@ -5,16 +5,7 @@
 <% end %>
 
 <%= button_to "My Pins", user_pins_path(@user), method: :get %>
-
-<% @user.posts.each do |post| %>
-  <a href="/posts/<%= post.id %>"><%=post.title %></a>
-    <br>
-  <% if post.avatar%>
-    <%=image_tag post.avatar.url, size: "5X5" %>
-  <%end%>
-<%end%>
-<br>
-</br>
+<div class="post_image"></div>
 
 
 <br>

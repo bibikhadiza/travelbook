@@ -27,16 +27,21 @@ $(document).ready(function(){
 
 //
 function makeCall(){
+  debugger;
 var gettingId = $('.button_to').attr('action')
+debugger;
 result = gettingId.split("/")[2];
+debugger;
 $.ajax({
   url: `/users/${result}`,
   dataType: 'json',
   method: 'GET',
   success: function(data){
+    debugger;
     data.user.posts.forEach((post) => {
       var userPost = new Post(post.avatar, post.car_rental, post.climate, post.content, post.diet, post.flight, post.id, post.title, post.total_cost)
       var result = $('.post_image').prepend(userPost.appendImage())
+      
 
     })
   }
