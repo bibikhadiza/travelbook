@@ -16,3 +16,4 @@
 //= require_tree .
 //= require post
 //= require user
+//= require pin

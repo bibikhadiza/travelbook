@@ -10,24 +10,31 @@ class PinsController < ApplicationController
 
   def index
     user = User.find_by(id: params[:id])
-    @active_pins = Pin.active_pins(user)
-    @inactive_pins = Pin.inactive_pins(user)
+    @pins = user.pins
+    # @active_pins = Pin.active_pins(user)
+    # @inactive_pins = Pin.inactive_pins(user)
     respond_to do |f|
         f.html { render :index }
-        f.json { render json: @active_pins}
-        f.json { render json: @active_pins}
+        f.json { render json: @pins}
       end
   end
 
 
   def edit
+    binding.pry
     @pin = Pin.find_by(id: params[:id])
     @pin.update(status: false)
     flash[:notice] = "You have visited #{@pin.post.destination.name}"
-    redirect_to user_pins_path(current_user)
+    redirect_to user_path(current_user)
   end
 
 
+
+  def update
+    @pin = Pin.find_by(id: params[:id])
+    @pin.update(status: false)
+    flash[:notice] = "You have visited #{@pin.post.destination.name}"
+  end
 
 
 

@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :destinations, :posts
   post '/post/:id/edit' => "posts#edit", as: "edit_post_button"
 
-  resources :pins, only: [:edit]
+  resources :pins, only: [:edit, :update]
   get '/destinations/:id/posts/new' => "posts#new"
   post '/users/:id/pins' => "pins#users"
 

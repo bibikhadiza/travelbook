@@ -1,21 +1,39 @@
+<div class="dropdown">
+  <button class="dropbtn">Check into Destination</button>
+  <div class="dropdown-content">
+    <%Destination.all.each do |des|%>
+    <a href="/destinations/<%=des.id%>/posts/new" id="myBtn"><%=des.name%></a>
+    <%end%>
+    <a href="/posts/new" id="myBtn">Create A new Destination</a>
+  </div>
+</div>
 
 <%= form_tag(destinations_path, :method => "get", id: "search-form") do %>
   <%= text_field_tag :search, params[:search], placeholder: "Search Destinations" %>
     <%= submit_tag "Search" %>
 <% end %>
 
-<%= button_to "My Pins", user_pins_path(@user), method: :get %>
-<div class="post_image"></div>
+<%= button_to "My Pins", user_pins_path(@user), method: :get, id: "my_pins"%>
+
 
 
 <br>
 </br>
+<h3></h3>
+<div class="post_image">
+<ul>
+
+</ul>
+</div>
 
 
-<div class="dropdown">
-  <button class="dropbtn">Check into Destination</button>
-  <div class="dropdown-content">
-    <%Destination.all.each do |des|%>
-    <a href="/destinations/<%=des.id%>/posts/new"><%=des.name%></a>
-    <%end%>
-    <a href="/posts/new">Create A new Destination</a>
+
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <p>Some text in the Modal..</p>
+  </div>
+
+</div>
