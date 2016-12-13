@@ -1,29 +1,14 @@
 class User{
 
-  constructor(email, posts, pins){
+  constructor(email, id, posts, pins){
     this.name = email;
+    this.id = id;
     this.posts = posts;
     this.pins = pins;
   }
 }
 
 var result;
-var modal = document.getElementById('myModal');
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
-
-
-
-// span.onclick = function() {
-//   modal.style.display = "none";
-// }
-//
-// window.onclick = function(event) {
-//   if (event.target == modal) {
-//       modal.style.display = "none";
-//   }
-// }
-
 
 
 $(document).ready(function(){
@@ -33,22 +18,15 @@ $(document).ready(function(){
     makePinAjaxCall(event);
   })
 
-  $('#myBtn').on('click', function(event){
-    event.preventDefault();
-    var modal = document.getElementById('myModal');
-    var span = document.getElementsByClassName("close")[0];
-    debugger;
-    modal.style.display = "block";
-    debugger;
-
-    span.onclick = function() {
-      modal.style.display = "none";
-    }
-  })
 });
 
 //
+
+
+
+
 function makeCall(){
+  debugger;
   if($('.button_to').length){
 var gettingId = $('.button_to').attr('action')
 result = gettingId.split("/")[2];
@@ -74,6 +52,7 @@ function makePinAjaxCall(event){
     dataType: 'json',
     method: 'GET',
     success: function(data){
+      debugger;
       loadPins(data);
 
     }

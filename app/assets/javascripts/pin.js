@@ -8,7 +8,6 @@ class Pin{
 
 
   appendPins(){
-    debugger;
     return `<li>${this.post.title}<br><a href=/posts/${this.post.id}><img src=${this.post.avatar.url} style="max-height: 200px; max-width: 200px;"></a><button type="button" onclick=locationsVisited(${this.id});>Visited Location</button></li>`
   }
 

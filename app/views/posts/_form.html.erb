@@ -29,7 +29,7 @@
 <% end %>
 <h2> Create a travel entry for <%=destination.name%> </h2>
 
-  <%= form_for destination, :url => {:action => "create"}, :method => "post" do |f| %>
+  <%= form_for destination, :url => url, :method => method do |f| %>
     <%= f.label "Create Destination Name" if !destination.id %>
     <%= f.text_field :name if !destination.id%>
     <%= f.hidden_field :name, :value => destination.name  if destination && destination.id %>

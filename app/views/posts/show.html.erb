@@ -27,7 +27,6 @@ Content: <%= @post.content%>
 <%=image_tag @post.avatar.url%>
 <br></br>
 <% if current_user.id == @post.user_id %>
-<%binding.pry%>
   <%= button_to "Update Entry", edit_post_button_path(@post)%>
 
 <%end%>

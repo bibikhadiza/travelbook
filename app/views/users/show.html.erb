@@ -1,11 +1,17 @@
 <div class="dropdown">
   <button class="dropbtn">Check into Destination</button>
   <div class="dropdown-content">
+
+
+
     <%Destination.all.each do |des|%>
-    <a href="/destinations/<%=des.id%>/posts/new" id="myBtn"><%=des.name%></a>
+    <a href="/destinations/<%=des.id%>/posts/new" class="nested" id="<%=des.id%>"><%=des.name%></a>
+
+
     <%end%>
-    <a href="/posts/new" id="myBtn">Create A new Destination</a>
-  </div>
+    <a href="/posts/new" id="nested" >Create A new Destination</a>
+
+</div>
 </div>
 
 <%= form_tag(destinations_path, :method => "get", id: "search-form") do %>
@@ -27,13 +33,6 @@
 </div>
 
 
-
-<div id="myModal" class="modal">
-
-  <!-- Modal content -->
-  <div class="modal-content">
-    <span class="close">&times;</span>
-    <p>Some text in the Modal..</p>
-  </div>
-
+<div class="post_details">
+  <p></p>
 </div>

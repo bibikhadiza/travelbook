@@ -3,7 +3,6 @@ class PostsController < ApplicationController
 
 
   def new
-    binding.pry
     if params[:id]
       @destination = Destination.find_by(id: params[:id])
       @destination.posts.build
@@ -33,6 +32,12 @@ class PostsController < ApplicationController
     if @pin
       flash[:notice] = "You Have Pinned This Post"
     end
+    respond_to do |f|
+        f.html { render :show }
+        f.json { render json: @post, adapter: :json}
+
+      end
+
   end
 
 
@@ -40,7 +45,6 @@ class PostsController < ApplicationController
 
 
   def edit
-    binding.pry
     @post = Post.find_by(id: params[:id])
     @destination = @post.destination
   end

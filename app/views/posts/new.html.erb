@@ -1,1 +1,1 @@
-<%= render partial: "posts/form", locals: {destination: @destination, post: Post.new} %>
+<%= render partial: "posts/form", locals: {destination: @destination, post: Post.new, url: {:action => "create"}, method: "post"} %>

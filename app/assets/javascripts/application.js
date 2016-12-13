@@ -14,6 +14,6 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
-//= require post
 //= require user
+//= require post
 //= require pin
