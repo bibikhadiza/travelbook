@@ -49,31 +49,19 @@ class Post{
       return `<a href=/posts/${this.id} ><img src=${this.avatar.url} style="max-height: 200px; max-width: 200px;"></a>`
     }
   }
-
-
-
-
-
-
-
 }
 
 
 function selectedImage(event){
-  debugger;
   event.preventDefault();
-  debugger;
   var url = event.srcElement.parentNode.pathname
-  debugger;
   $.ajax({
     url: url,
     dataType: 'json',
     method: 'GET',
     success: function(data){
-      debugger;
       var user = new User(data.post.user.email, data.post.user.id, data.post, data.post.pins)
       var post = new Post(data.post.avatar, data.post.car_rental, data.post.climate, data.post.content, data.post.diet, data.post.flight, data.post.id, data.post.title, data.post.total_cost, data.post.destination, data.post.user, data.post.pins)
-      debugger;
       $(".post_image").html(" ")
       $(".post_details").append(post.appendPostDetail())
     }
@@ -92,6 +80,6 @@ function destinationPosts(data){
       debugger;
       var post = new Post(object.avatar, object.car_rental, object.climate, object.content, object.diet, object.flight, object.id, object.title, object.total_cost, object.destination, object.user, object.pins)
       debugger;
-      // $('.form').html(post.appendDestinationPost())
+      $('.form').html(post.appendDestinationPost())
     })
     }

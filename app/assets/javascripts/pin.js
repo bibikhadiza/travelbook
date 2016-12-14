@@ -12,12 +12,28 @@ class Pin{
   }
 
 }
+  // function Pin(attributes){
+  //   this.id = attributes.id;
+  //   this.user = attributes.user;
+  //   this.status = attributes.status;
+  //   this.post = attributes.post;
+  // }
+  //
+  // Pin.prototype.appendPins() = function(){
+  //   return `<li>${this.post.title}<br><a href=/posts/${this.post.id}><img src=${this.post.avatar.url} style="max-height: 200px; max-width: 200px;"></a><button type="button" onclick=locationsVisited(${this.id});>Visited Location</button></li>`
+  // }
+  //
+  // var alex = new Pin(2, { }, "hey", { })
+  // alex.appendPins()
+
+
 
 
 
 function makePinAjaxCall(event){
+  var id = $('body').attr('id')
   $.ajax({
-    url: `/users/${result}/pins`,
+    url: `/users/${id}/pins`,
     dataType: 'json',
     method: 'GET',
     success: function(data){

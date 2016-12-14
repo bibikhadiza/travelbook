@@ -11,18 +11,19 @@ class User{
 var result;
 var id;
 
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   makeCall();
-  $('.button_to').on('click', function(event){
+  $('#my_pins').on('click', function(event){
     event.preventDefault();
     makePinAjaxCall(event);
 
   })
 
+
   $('.form').on('submit', function(event){
     debugger;
     event.preventDefault();
-    event.stopPropagation();
+    // event.stopPropagation();
     debugger;
   var form = $('form')[0];
   debugger;
@@ -51,9 +52,9 @@ $(document).ready(function(){
 
 function makeCall(){
   if($('.button_to').length){
-result = $('body').attr('id')
+id = $('body').attr('id')
 $.ajax({
-  url: `/users/${result}`,
+  url: `/users/${id}`,
   dataType: 'json',
   method: 'GET',
   success: function(data){

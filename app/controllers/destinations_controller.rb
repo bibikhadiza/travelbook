@@ -41,7 +41,6 @@ class DestinationsController < ApplicationController
 
 
   def show
-    binding.pry
     if @destination && @destination.posts.present?
       @destination_posts = @destination.posts
     else

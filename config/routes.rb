@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   post '/users/:id/pins' => "pins#users"
 
   resources :posts, only: [:show] do
-    resources :pins, only: [:new, :index]
+    resources :pins, only: [:create, :index]
   end
 
 
