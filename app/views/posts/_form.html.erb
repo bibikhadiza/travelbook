@@ -1,3 +1,10 @@
+<% if post.id %>
+<% submit = "Update Post" %>
+<%else%>
+<% submit = "Create Post"%>
+<%end%>
+
+
 <% if destination.errors.any? %>
 <div id="error_explanation">
   <h2>
@@ -27,6 +34,7 @@
   </ul>
 </div>
 <% end %>
+<div class="form">
 <h2> Create a travel entry for <%=destination.name%> </h2>
 
   <%= form_for destination, :url => url, :method => method do |f| %>
@@ -58,5 +66,6 @@
       <%= post_builder.file_field :avatar %>
       <br></br>
     <%end%>
-      <%=f.submit %>
+      <%=f.submit submit, :id => "submit_form"%>
   <%end%>
+</div>

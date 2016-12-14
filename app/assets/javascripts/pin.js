@@ -14,6 +14,20 @@ class Pin{
 }
 
 
+
+function makePinAjaxCall(event){
+  $.ajax({
+    url: `/users/${result}/pins`,
+    dataType: 'json',
+    method: 'GET',
+    success: function(data){
+      loadPins(data);
+
+    }
+  })
+}
+
+
 function loadPins(data){
   $('ul').html(" ")
   if(data.length === 0){

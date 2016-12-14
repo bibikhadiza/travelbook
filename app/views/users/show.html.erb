@@ -6,7 +6,7 @@
 
     <%Destination.all.each do |des|%>
     <a href="/destinations/<%=des.id%>/posts/new" class="nested" id="<%=des.id%>"><%=des.name%></a>
-
+    <p> </p>
 
     <%end%>
     <a href="/posts/new" id="nested" >Create A new Destination</a>
@@ -21,7 +21,7 @@
 
 <%= button_to "My Pins", user_pins_path(@user), method: :get, id: "my_pins"%>
 
-
+<%= button_to "My Account", user_path(@user), method: :get, id: "about_me" %>
 
 <br>
 </br>

@@ -17,7 +17,15 @@ class PostsController < ApplicationController
   def create
     @destination = Destination.find_by(name: params[:destination][:name])
     if @destination.update(location_params)
-      redirect_to user_path(current_user)
+      binding.pry
+      @posts = @destination.posts
+      # binding.pry
+      # render json: @posts, status: 201
+      respond_to do |f|
+          f.html { render :show }
+          f.json { render json: @posts, adapter: :json}
+
+        end
     else
       render "new"
     end
