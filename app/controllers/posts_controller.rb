@@ -19,8 +19,6 @@ class PostsController < ApplicationController
     if @destination.update(location_params)
       binding.pry
       @posts = @destination.posts
-      # binding.pry
-      # render json: @posts, status: 201
       respond_to do |f|
           f.html { render :show }
           f.json { render json: @posts, adapter: :json}

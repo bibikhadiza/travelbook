@@ -71,15 +71,11 @@ function selectedImage(event){
 
 
 function destinationPosts(data){
-  debugger;
   var id = $('body').attr('id')
-  debugger;
     $('.form').html(" ")
-    debugger;
+    
     data.posts.forEach((object)=>{
-      debugger;
       var post = new Post(object.avatar, object.car_rental, object.climate, object.content, object.diet, object.flight, object.id, object.title, object.total_cost, object.destination, object.user, object.pins)
-      debugger;
       $('.form').html(post.appendDestinationPost())
     })
     }

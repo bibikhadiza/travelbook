@@ -21,14 +21,9 @@ $(document).on('turbolinks:load', function(){
 
 
   $('.form').on('submit', function(event){
-    debugger;
     event.preventDefault();
-    // event.stopPropagation();
-    debugger;
   var form = $('form')[0];
-  debugger;
   var formData = new FormData(form);
-  debugger;
   $.ajax({
     url: '/posts',
     method: 'POST',
@@ -37,16 +32,10 @@ $(document).on('turbolinks:load', function(){
     contentType: false,
     processData: false,
     success: function(data){
-      debugger;
       destinationPosts(data);
     }
 })
 })
-
-
-
-
-
 });
 
 
@@ -66,5 +55,3 @@ $.ajax({
 })
 }
 }
-//
-//
