@@ -13,45 +13,55 @@ var id;
 
 $(document).on('turbolinks:load', function(){
   makeCall();
-  $('#my_pins').on('click', function(event){
-    event.preventDefault();
+  $('#my-pins').on('click', function(){
     makePinAjaxCall(event);
-
   })
 
+  $('#follow').on('click', function(){
+      makeFollowerAjaxCall(event)
+  })
 
-  $('.form').on('submit', function(event){
+  $('#nested').on('click', function(event){
+    event.preventDefault()
+    $('.ui.modal').modal('show')
+  })
+
+  $('.ui.modal.form').on('submit', function(event){
     event.preventDefault();
-  var form = $('form')[0];
-  var formData = new FormData(form);
-  $.ajax({
-    url: '/posts',
-    method: 'POST',
-    dataType: "json",
-    data: formData,
-    contentType: false,
-    processData: false,
-    success: function(data){
-      destinationPosts(data);
-    }
-})
-})
+    var form = $('form')[0];
+    var formData = new FormData(form);
+    $.ajax({
+      url: '/posts',
+      method: 'POST',
+      dataType: "json",
+      data: formData,
+      contentType: false,
+      processData: false,
+      success: function(data){
+        destinationPosts(data);
+      }
+    })
+  })
 });
+
+function makeFollowerAjaxCall(event){
+
+}
+
 
 
 function makeCall(){
-  if($('.button_to').length){
-id = $('body').attr('id')
-$.ajax({
-  url: `/users/${id}`,
-  dataType: 'json',
-  method: 'GET',
-  success: function(data){
-      data.user.posts.forEach((post) => {
-      var userPost = new Post(post.avatar, post.car_rental, post.climate, post.content, post.diet, post.flight, post.id, post.title, post.total_cost)
-      var result = $('ul').append(userPost.appendImage())
-    })
+  if($(".post_image").length){
+    id = $('body').attr('id')
+    $.ajax({
+      url: `/users/${id}.json`,
+      method: 'GET',
+      success: function(data){
+          data.posts.forEach((post) => {
+          var userPost = new Post(post.avatar, post.car_rental, post.climate, post.content, post.diet, post.flight, post.id, post.title, post.total_cost)
+          var result = $('ul').append(userPost.appendImage())
+        });
+      }
+    });
   }
-})
-}
 }

@@ -1,71 +1,61 @@
-<% if post.id %>
-<% submit = "Update Post" %>
-<%else%>
-<% submit = "Create Post"%>
-<%end%>
+<div class="ui modal">
+  <div class="header">Header</div>
+    <div class="content">
+      <% if post.id %>
+      <% submit = "Update Post" %>
+      <%else%>
+      <% submit = "Create Post"%>
+      <%end%>
 
 
-<% if destination.errors.any? %>
-<div id="error_explanation">
-  <h2>
-    <%= pluralize(destination.errors.count, "error") %>
-    prohibited this article from being saved:
-  </h2>
 
-  <ul>
-    <% destination.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
+      <% if post && post.errors.any? %>
+      <div id="error_explanation">
+      <h2>
+        <%= pluralize(post.errors.count, "error") %>
+        prohibited this article from being saved:
+      </h2>
 
-<% if post && post.errors.any? %>
-<div id="error_explanation">
-  <h2>
-    <%= pluralize(post.errors.count, "error") %>
-    prohibited this article from being saved:
-  </h2>
+      <ul>
+        <% post.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+        <% end %>
+      </ul>
+      </div>
+      <% end %>
 
-  <ul>
-    <% post.errors.full_messages.each do |msg| %>
-    <li><%= msg %></li>
-    <% end %>
-  </ul>
-</div>
-<% end %>
-<div class="form">
-<h2> Create a travel entry for <%=destination.name%> </h2>
+    <div class="form">
+    <%= form_for Post.new do |f| %>
+      <%= f.hidden_field :user_id, :value => current_user.id %>
 
-  <%= form_for destination, :url => url, :method => method do |f| %>
-    <%= f.label "Create Destination Name" if !destination.id %>
-    <%= f.text_field :name if !destination.id%>
-    <%= f.hidden_field :name, :value => destination.name  if destination && destination.id %>
-    <br></br>
+      <%= f.collection_select :destination, Destination.all, :name, :name %>
 
-    <%= f.fields_for :posts, post do |post_builder|%>
-      <%= post_builder.hidden_field :user_id, :value => current_user.id %>
-      Post Title: <%=post_builder.text_field :title %>
+      <%= f.fields_for :destination, destination do |des|%>
+        <%= des.label "Or Enter Destination Name" %>
+        <%= des.text_field :name %>
+      <%end%>
+
+      Post Title: <%=f.text_field :title %>
       <br>
-      <br>
-      <h3> Please Include Total Cost of Trip </h3>
-      Total Cost<%= post_builder.text_field :total_cost %>
-      <br>
-      <h3>Please Rate the Following from 1-5 </h3>
-      <br>
-      How was your flights? <%= post_builder.text_field :flight %>
-      <br>
-      How great was the climate? <%=post_builder.text_field :climate %>
-      <br>
-      Was the car rental services Awesome? <%=post_builder.text_field :car_rental %>
-      <br>
-      How amazing was the food? <%=post_builder.text_field :diet %>
+      Total Cost of Trip<%= f.text_field :total_cost %>
       <br></br>
-      <h3> Share all the amazing experiences you had below!!! </h3>
-      <%=post_builder.text_area :content %>
-      <%= post_builder.file_field :avatar %>
+      Please Rate the Following from 1-5
+      <br>
+      How was your flights? <%=f.radio_button :flight, 1%> 1 <%=f.radio_button :flight, 2%> 2 <%=f.radio_button :flight, 3%> 3 <%=f.radio_button :flight, 4%> 4 <%=f.radio_button :flight, 5%> 5
+      <br>
+      How great was the climate? <%=f.radio_button :climate, 1%> 1 <%=f.radio_button :climate, 2%> 2 <%=f.radio_button :climate, 3%> 3 <%=f.radio_button :climate, 4%> 4 <%=f.radio_button :climate, 5%> 5
+      <br>
+      Was the car rental services Awesome? <%=f.radio_button :car_rental, "1"%> 1 <%=f.radio_button :car_rental, 2%> 2 <%=f.radio_button :car_rental, 3%> 3 <%=f.radio_button :car_rental, 4%> 4 <%=f.radio_button :car_rental, 5%> 5
+      <br>
+      How amazing was the food? <%=f.radio_button :diet, "1"%> 1 <%=f.radio_button :diet, 2%> 2 <%=f.radio_button :diet, 3%> 3 <%=f.radio_button :diet, 4%> 4 <%=f.radio_button :diet, 5%> 5
       <br></br>
-    <%end%>
+      <h3>Share Your Experience</h3>
+      <%=f.text_area :content %>
+      <%= f.file_field :avatar %>
+      <br></br>
       <%=f.submit submit, :id => "submit_form"%>
-  <%end%>
-</div>
+    <%end%>
+
+      </div>
+    </div>
+  </div>

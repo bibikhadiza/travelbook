@@ -8,6 +8,13 @@ class Post < ActiveRecord::Base
   validates_numericality_of :car_rental, :flight, :diet, :climate, :greater_than_or_equal_to => 1, :less_than_or_equal_to => 5
 
 
+  def destination_attributes=(destination_attributes)
+    destionation_attributes.each do |attr|
+      self.destination.build(attr)
+    end
+  end
+
+
 
 
 

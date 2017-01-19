@@ -12,8 +12,6 @@ class PinsController < ApplicationController
   def index
     user = User.find_by(id: params[:id])
     @pins = user.pins
-    # @active_pins = Pin.active_pins(user)
-    # @inactive_pins = Pin.inactive_pins(user)
     respond_to do |f|
         f.html { render :index }
         f.json { render json: @pins}

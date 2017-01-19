@@ -1,37 +1,37 @@
 <div class="dropdown">
   <button class="dropbtn">Check into Destination</button>
   <div class="dropdown-content">
-
-
-
     <%Destination.all.each do |des|%>
-    <a href="/destinations/<%=des.id%>/posts/new" class="nested" id="<%=des.id%>"><%=des.name%></a>
-    <p> </p>
-
+      <a href="#" class="working" id="<%=des.id%>"><%=des.name%></a>
     <%end%>
-    <a href="/posts/new" id="nested" >Create A new Destination</a>
+    <a href="/posts/new" id="working" >Create A new Destination</a>
+  </div>
+</div>
 
-</div>
-</div>
+
+<a href="#" id="nested">Create Entry</a>
+<%= render partial: "posts/form", locals: {post: Post.new, destination: Destination.new}%>
+
+
+
 
 <%= form_tag(destinations_path, :method => "get", id: "search-form") do %>
   <%= text_field_tag :search, params[:search], placeholder: "Search Destinations" %>
     <%= submit_tag "Search" %>
 <% end %>
 
-<%= button_to "My Pins", user_pins_path(@user), method: :get, id: "my_pins"%>
+<button class="btn btn-default" id="my-pins">My pins</button>
+<button id="follow">Followers</button>
 
-<%= button_to "My Account", user_path(@user), method: :get, id: "about_me" %>
 
 <br>
 </br>
 <h3></h3>
 <div class="post_image">
-<ul>
-
-</ul>
+  <ul></ul>
 </div>
 
+<div id="#myModel"></div>
 
 <div class="post_details">
   <p></p>

@@ -3,31 +3,57 @@ class PostsController < ApplicationController
 
 
   def new
-    if params[:id]
-      @destination = Destination.find_by(id: params[:id])
-      @destination.posts.build
-    else
-      @destination = Destination.new
-      @destination.posts.build
-    end
+    # if params[:id]
+    #   @destination = Destination.find_by(id: params[:id])
+    #   @destination.posts.build
+    # else
+    #   @destination = Destination.new
+    #   @destination.posts.build
+    # end
+    @post = Post.new
+    @destinations = Destination.all
   end
 
 
 
   def create
-    @destination = Destination.find_by(name: params[:destination][:name])
-    if @destination.update(location_params)
-      binding.pry
-      @posts = @destination.posts
-      respond_to do |f|
-          f.html { render :show }
-          f.json { render json: @posts, adapter: :json}
-
-        end
+    binding.pry
+    if params["post"]["destination_attributes"]["name"]
+      # destination_name = params["post"]["destination_attributes"]["name"].split.map(&:capitalize)*' '
+      # @destination = Destination.find_or_create_by(name: destination_name)
+      @post = Post.create(input_destination_params)
+      if @post.valid?
+        # @destination.posts << @post
+        @post.save
+      end
     else
-      render "new"
+      @post = Post.new(selected_destination_params)
+      binding.pry
+        if @post.valid?
+          @post.save
+        else
+          render "new"
+        end
     end
   end
+
+
+
+
+  # def create
+  #   @destination = Destination.find_by(name: params[:destination][:name])
+  #   if @destination.update(location_params)
+  #     binding.pry
+  #     @posts = @destination.posts
+  #     respond_to do |f|
+  #         f.html { render :show }
+  #         f.json { render json: @posts, adapter: :json}
+  #
+  #       end
+  #   else
+  #     render "new"
+  #   end
+  # end
 
 
   def show
@@ -80,15 +106,13 @@ class PostsController < ApplicationController
 
   private
 
-  def location_params
-    params.require(:destination).permit(:name, :posts_attributes => [:title, :total_cost, :flight, :climate, :car_rental, :diet, :content, :user_id, :avatar, :id])
+  def input_destination_params
+    params.require(:post).permit(:title, :total_cost, :flight, :climate, :car_rental, :diet, :content, :user_id, :avatar, :destination_attributes => [:name])
   end
 
-
-
-
-
-
+  def selected_destination_params
+    params.require(:post).permit(:title, :total_cost, :flight, :climate, :car_rental, :diet, :content, :user_id, :avatar)
+  end
 
 
 

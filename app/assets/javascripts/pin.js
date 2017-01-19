@@ -20,8 +20,8 @@ function makePinAjaxCall(event){
     dataType: 'json',
     method: 'GET',
     success: function(data){
+      console.log('in cb');
       loadPins(data);
-
     }
   })
 }

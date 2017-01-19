@@ -7,7 +7,6 @@ class User < ActiveRecord::Base
   has_many :posts
   has_many :pins
   has_many :destinations, through: :posts
-  # has_many :post_pins, through: :posts, :source :pins
 
 
 
