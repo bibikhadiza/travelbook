@@ -11,43 +11,26 @@ class PostsController < ApplicationController
 
 
   def create
+    binding.pry
     if params["post"]["destination_attributes"]["name"] != ""
-      @post = Post.create(input_destination_params)
+      @post = Post.new(input_destination_params)
       @posts = @post.destination.posts
-      respond_to do |f|
-          f.html { render :show }
-          f.json { render json: @posts, adapter: :json}
-      end
-    else
-      @post = Post.create(selected_destination_params)
+    elsif params["post"]["destination_id"] != ""
+      @post = Post.new(selected_destination_params)
       @posts = @post.destination.posts
-      respond_to do |f|
-          f.html { render :show }
-          f.json { render json: @posts, adapter: :json}
-        end
     else
-       format.html { render action: 'new' }
-      end
+      @post = Post.new(params["post"])
+      binding.pry
     end
+      respond_to do |f|
+        if @post.save
+          f.html { render :show }
+          f.json { render json: @posts}
+        else
+          f.json {render :json => {:error => @post.errors.full_messages}, :status => 422}
+        end
+      end
   end
-
-
-
-
-  # def create
-  #   @destination = Destination.find_by(name: params[:destination][:name])
-  #   if @destination.update(location_params)
-  #     binding.pry
-  #     @posts = @destination.posts
-  #     respond_to do |f|
-  #         f.html { render :show }
-  #         f.json { render json: @posts, adapter: :json}
-  #
-  #       end
-  #   else
-  #     render "new"
-  #   end
-  # end
 
 
   def show

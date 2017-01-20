@@ -26,10 +26,11 @@ $(document).on('turbolinks:load', function(){
     $('.ui.modal').modal('show')
   })
 
-  $('.ui.modal.form').on('submit', function(event){
+  $('form.new_post').on('submit', function(event){
     event.preventDefault();
-    var form = $('form')[0];
+    var form = $('form.new_post')[0];
     var formData = new FormData(form);
+    // debugger;
     $.ajax({
       url: '/posts',
       method: 'POST',
@@ -39,6 +40,10 @@ $(document).on('turbolinks:load', function(){
       processData: false,
       success: function(data){
         destinationPosts(data);
+      },
+      error: function(err){
+        debugger;
+        console.log(err);
       }
     })
   })
