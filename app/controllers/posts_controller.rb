@@ -3,37 +3,31 @@ class PostsController < ApplicationController
 
 
   def new
-    # if params[:id]
-    #   @destination = Destination.find_by(id: params[:id])
-    #   @destination.posts.build
-    # else
-    #   @destination = Destination.new
-    #   @destination.posts.build
-    # end
     @post = Post.new
     @destinations = Destination.all
+    @post.destination.build
   end
 
 
 
   def create
-    binding.pry
-    if params["post"]["destination_attributes"]["name"]
-      # destination_name = params["post"]["destination_attributes"]["name"].split.map(&:capitalize)*' '
-      # @destination = Destination.find_or_create_by(name: destination_name)
+    if params["post"]["destination_attributes"]["name"] != ""
       @post = Post.create(input_destination_params)
-      if @post.valid?
-        # @destination.posts << @post
-        @post.save
+      @posts = @post.destination.posts
+      respond_to do |f|
+          f.html { render :show }
+          f.json { render json: @posts, adapter: :json}
       end
     else
-      @post = Post.new(selected_destination_params)
-      binding.pry
-        if @post.valid?
-          @post.save
-        else
-          render "new"
+      @post = Post.create(selected_destination_params)
+      @posts = @post.destination.posts
+      respond_to do |f|
+          f.html { render :show }
+          f.json { render json: @posts, adapter: :json}
         end
+    else
+       format.html { render action: 'new' }
+      end
     end
   end
 
@@ -111,7 +105,7 @@ class PostsController < ApplicationController
   end
 
   def selected_destination_params
-    params.require(:post).permit(:title, :total_cost, :flight, :climate, :car_rental, :diet, :content, :user_id, :avatar)
+    params.require(:post).permit(:title, :total_cost, :flight, :climate, :car_rental, :diet, :content, :user_id, :avatar, :destination_id)
   end
 
 

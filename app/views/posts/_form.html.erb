@@ -25,10 +25,10 @@
       <% end %>
 
     <div class="form">
-    <%= form_for Post.new do |f| %>
+    <%= form_for post do |f| %>
       <%= f.hidden_field :user_id, :value => current_user.id %>
-
-      <%= f.collection_select :destination, Destination.all, :name, :name %>
+      <%= f.label "Select a Destination"%>
+      <%= f.collection_select :destination_id, Destination.all, :id, :name, :include_blank => true %><br><br>
 
       <%= f.fields_for :destination, destination do |des|%>
         <%= des.label "Or Enter Destination Name" %>

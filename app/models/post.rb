@@ -9,12 +9,13 @@ class Post < ActiveRecord::Base
 
 
   def destination_attributes=(destination_attributes)
-    destionation_attributes.each do |attr|
-      self.destination.build(attr)
-    end
+    destination_name = destination_attributes["name"].split.map(&:capitalize)*' '
+    self.destination = Destination.find_or_create_by(name: destination_name)
   end
 
-
+  def destination_attributes
+    self.destination
+  end
 
 
 
