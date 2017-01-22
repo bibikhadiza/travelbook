@@ -82,9 +82,9 @@ class DestinationsController < ApplicationController
 
   private
 
-  def location_params
-    params.require(:destination).permit(:name, :posts_attributes => [:title, :total_cost, :flight, :climate, :car_rental, :diet, :content, :user_id, :avatar, :id])
-  end
+  # def location_params
+  #   params.require(:destination).permit(:name, :posts_attributes => [:title, :total_cost, :flight, :climate, :car_rental, :diet, :content, :user_id, :avatar, :id])
+  # end
 
 
   def find_destination

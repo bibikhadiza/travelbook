@@ -78,11 +78,6 @@ function selectedImage(event){
 // }
 
 
-function destinationPosts(data){
-  var id = $('body').attr('id')
-  $('.form').html(" ")
-  data.posts.forEach((object)=>{
-    var post = new Post(object.avatar, object.car_rental, object.climate, object.content, object.diet, object.flight, object.id, object.title, object.total_cost, object.destination, object.user, object.pins)
-    $('.form').html(post.appendDestinationPost())
-  })
+function destinationPosts(object){
+  var post = new Post(object.avatar, object.car_rental, object.climate, object.content, object.diet, object.flight, object.id, object.title, object.total_cost, object.destination, object.user, object.pins)
 }

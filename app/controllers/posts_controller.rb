@@ -11,25 +11,16 @@ class PostsController < ApplicationController
 
 
   def create
-    binding.pry
-    if params["post"]["destination_attributes"]["name"] != ""
-      @post = Post.new(input_destination_params)
-      @posts = @post.destination.posts
-    elsif params["post"]["destination_id"] != ""
-      @post = Post.new(selected_destination_params)
-      @posts = @post.destination.posts
-    else
-      @post = Post.new(params["post"])
-      binding.pry
+    @post = Post.new(post_params)
+    if helpers.both_destinations?(post_params)
+      @post.errors.messages[:bad_destination] = ["Please choose an existing destiantion or input a destination name"]
     end
-      respond_to do |f|
-        if @post.save
-          f.html { render :show }
-          f.json { render json: @posts}
-        else
-          f.json {render :json => {:error => @post.errors.full_messages}, :status => 422}
-        end
-      end
+
+    if @post.save
+      render json: @post
+    else
+      render json: @post.errors.full_messages, status: 422
+    end
   end
 
 
@@ -46,7 +37,6 @@ class PostsController < ApplicationController
         f.json { render json: @post, adapter: :json}
 
       end
-
   end
 
 
@@ -83,12 +73,8 @@ class PostsController < ApplicationController
 
   private
 
-  def input_destination_params
-    params.require(:post).permit(:title, :total_cost, :flight, :climate, :car_rental, :diet, :content, :user_id, :avatar, :destination_attributes => [:name])
-  end
-
-  def selected_destination_params
-    params.require(:post).permit(:title, :total_cost, :flight, :climate, :car_rental, :diet, :content, :user_id, :avatar, :destination_id)
+  def post_params
+    params.require(:post).permit(:title, :total_cost, :flight, :climate, :car_rental, :diet, :content, :user_id, :avatar, :destination_id, :destination_attributes => [:name])
   end
 
 
