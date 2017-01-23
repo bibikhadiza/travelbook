@@ -1,4 +1,4 @@
-<div class="dropdown">
+<!-- <div class="dropdown">
   <button class="dropbtn">Check into Destination</button>
   <div class="dropdown-content">
     <%Destination.all.each do |des|%>
@@ -6,22 +6,22 @@
     <%end%>
     <a href="/posts/new" id="working" >Create A new Destination</a>
   </div>
-</div>
+</div> -->
 
 
-<a href="#" id="nested">Create Entry</a>
+<!-- <a href="#" id="nested">Create Entry</a> -->
 <%= render partial: "posts/form", locals: {post: Post.new, destination: Destination.new}%>
 
 
 
 
-<%= form_tag(destinations_path, :method => "get", id: "search-form") do %>
+<!-- <%= form_tag(destinations_path, :method => "get", id: "search-form") do %>
   <%= text_field_tag :search, params[:search], placeholder: "Search Destinations" %>
     <%= submit_tag "Search" %>
-<% end %>
+<% end %> -->
 
-<button class="btn btn-default" id="my-pins">My pins</button>
-<button id="follow">Followers</button>
+<!-- <button class="btn btn-default" id="my-pins">My pins</button> -->
+<!-- <button id="follow">Followers</button> -->
 
 
 <br>

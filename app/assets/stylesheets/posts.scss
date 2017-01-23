@@ -1,48 +1,48 @@
 // Place all the styles related to the posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.dropbtn {
-    background-color: #4CAF50;
-    color: white;
-    padding: 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-
-.dropdown {
-    position: relative;
-    display: inline-block;
-}
-
-
-.dropdown-content {
-    display: none;
-    position: absolute;
-    background-color: #f9f9f9;
-    min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
-
-
-.dropdown-content a {
-    color: black;
-    padding: 12px 16px;
-    text-decoration: none;
-    display: block;
-}
-
-
-.dropdown-content a:hover {background-color: #f1f1f1}
-
-.dropdown:hover .dropdown-content {
-    display: block;
-}
-
-.dropdown:hover .dropbtn {
-    background-color: #3e8e41;
-}
+// .dropbtn {
+//     background-color: #4CAF50;
+//     color: white;
+//     padding: 16px;
+//     font-size: 16px;
+//     border: none;
+//     cursor: pointer;
+// }
+//
+//
+// .dropdown {
+//     position: relative;
+//     display: inline-block;
+// }
+//
+//
+// .dropdown-content {
+//     display: none;
+//     position: absolute;
+//     background-color: #f9f9f9;
+//     min-width: 160px;
+//     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+// }
+//
+//
+// .dropdown-content a {
+//     color: black;
+//     padding: 12px 16px;
+//     text-decoration: none;
+//     display: block;
+// }
+//
+//
+// .dropdown-content a:hover {background-color: #f1f1f1}
+//
+// .dropdown:hover .dropdown-content {
+//     display: block;
+// }
+//
+// .dropdown:hover .dropbtn {
+//     background-color: #3e8e41;
+// }
 
 
 .error {
@@ -50,4 +50,67 @@
   height: auto;
   background-color: #F0D1D1;
   color: #944141;
+}
+
+
+#MenuHolder {
+  display: flex;
+  margin: 1rem 0
+ font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+ background: #FFF;
+font-weight: 400;
+border: 1px solid rgba(34,36,38,.15);
+box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+border-radius: .28571429rem;
+min-height: 2.85714286em;
+}
+
+
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+nav ul li {
+  list-style-type: none;
+  float: left;
+  display: block;
+  width: 150px;
+  height: 60px;
+  text-align: center;
+  line-height: 55px;
+   font-size: 1rem;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+
+}
+
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+nav a {
+  display: block;
+}
+
+.blue {
+  background-color: rgb(242, 210, 104);
+}
+
+nav ul li:Hover {
+  border-bottom: 3px solid #333;
+}
+
+nav ul ul {
+  display: none;
+}
+
+nav ul li:Hover > ul {
+  display: block;
+}
+
+nav ul ul li {
+  width: 161.3px;
+  height: 60px;
+  line-height: 55px;
 }
