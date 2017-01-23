@@ -11,17 +11,20 @@ class PostsController < ApplicationController
 
 
   def create
+    binding.pry
     @post = Post.new(post_params)
-    if helpers.both_destinations?(post_params)
-      @post.errors.messages[:bad_destination] = ["Please choose an existing destiantion or input a destination name"]
-    end
-
+    binding.pry
     if @post.save
       render json: @post
     else
       render json: @post.errors.full_messages, status: 422
     end
   end
+
+  #we first instantiate a new object a if an id is set to the destination it post should be valid
+  #we check the destination_attributes post model method
+
+
 
 
   def show
@@ -74,7 +77,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:title, :total_cost, :flight, :climate, :car_rental, :diet, :content, :user_id, :avatar, :destination_id, :destination_attributes => [:name])
+    params.require(:post).permit(:title, :vacation_type, :total_cost, :flight, :climate, :car_rental, :diet, :content, :user_id, :avatar, :destination_id, :destination_attributes => [:name])
   end
 
 

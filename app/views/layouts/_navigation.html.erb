@@ -7,24 +7,31 @@
   <br><br>
 <%end%>
 
-<div class="ui secondary  menu">
-  <a class="item active">
-    Home
-  </a>
-  <a class="item">
-    Blogs
-  </a>
-  <a class="item">
-    Destinations
-  </a>
-  <a class="item">
-    Create Entry
-  </a>
-  <a class="item">
-    Pins
-  </a>
-  <div class="right menu">
-    <div class="item">
+<%if user_signed_in? %>
+
+<div id="MenuHolder">
+  <nav>
+    <ul>
+      <li><a>Home</a></li>
+      <li><a>Blogs</a></li>
+      <li><a>Destinations</a>
+        <ul>
+          <!-- <%Destination.all.each do |des|%>
+            <li><a href="#" class="working" id="<%=des.id%>"><%=des.name%></a></li>
+          <%end%> -->
+          <li><a hrf="#">Honeymoon and Romantic</a></li>
+          <li><a hrf="#">Wildlife and Safari</a></li>
+          <li><a hrf="#">Rainforest and Jungles</a></li>
+          <li><a hrf="#">Beaches</a></li>
+          <li><a hrf="#">Road Trip</a></li>
+          <li><a hrf="#">Family</a></li>
+        </ul>
+      </li>
+     <li><a id="nested">Create Entry</a></li>
+      <li><a id="my-pins">Pins</a></li>
+    </ul>
+  </nav>
+    <div class="ui search">
       <div class="ui icon input">
         <%= form_tag(destinations_path, :method => "get", id: "search-form") do %>
           <%= text_field_tag :search, params[:search], placeholder: "Search Destinations" %>
@@ -32,8 +39,10 @@
         <i class="search link icon"></i>
       </div>
     </div>
-      <% if user_signed_in? %>
+    <div id="log_Out">
       <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "ui item"%>
-    <%end%>
-  </div>
+    </div>
+
 </div>
+
+<%end%>

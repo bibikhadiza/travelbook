@@ -11,14 +11,10 @@ class User{
 var result;
 var id;
 
-$(document).ready(function(){
+$(document).on('turbolinks:load', function(){
   makeCall();
   $('#my-pins').on('click', function(){
     makePinAjaxCall(event);
-  })
-
-  $('#follow').on('click', function(){
-      makeFollowerAjaxCall(event)
   })
 
   $('#nested').on('click', function(event){
@@ -43,19 +39,18 @@ $(document).ready(function(){
       },
       error: function(err){
         debugger;
+        $('.list').html("")
         $(".error").show()
         err.responseJSON.forEach((e) => {
           var error = `<li>${e}</li>`
           $('.list').append(error)
+          document.getElementById("submit_form").disabled = false;
         })
       }
     })
   })
 });
 
-function makeFollowerAjaxCall(event){
-
-}
 
 
 

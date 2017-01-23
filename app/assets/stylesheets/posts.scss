@@ -54,14 +54,14 @@
 
 
 #MenuHolder {
-  display: flex;
-  margin: 1rem 0
- font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
- background: #FFF;
+display: flex;
+margin: 1rem 0;
+font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+background: #FFF;
 font-weight: 400;
-border: 1px solid rgba(34,36,38,.15);
-box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
-border-radius: .28571429rem;
+// border: 1px solid rgba(34,36,38,.15);
+// box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
+// border-radius: .28571429rem;
 min-height: 2.85714286em;
 }
 
@@ -106,11 +106,24 @@ nav ul ul {
 }
 
 nav ul li:Hover > ul {
+  position: relative;
   display: block;
+  z-index: 0;
 }
 
 nav ul ul li {
   width: 161.3px;
   height: 60px;
   line-height: 55px;
+  background-color: white;
+}
+
+div.ui.search {
+  margin-left: 100px;
+}
+
+#log_Out {
+  margin-left: 50px;
+  position: relative;
+  top: 18px
 }

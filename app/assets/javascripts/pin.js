@@ -28,7 +28,7 @@ function makePinAjaxCall(event){
 
 
 function loadPins(data){
-  $('ul').html(" ")
+  $('#show_image').html(" ")
   if(data.length === 0){
     $('h3').html("You do not have any Pins")
   }
