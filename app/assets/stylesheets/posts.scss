@@ -115,12 +115,15 @@ a, a:visited {
   color: inherit;
 }
 
-html, body {
+html body {
   font-family: 'Open Sans', sans-serif;
   font-size: 100%;
-  background-color: #e2e5eb;
+  background-color: rgba(0, 0, 0, 0.06);
 }
 
+// #show {
+// background-color: rgba(0, 0, 0, 0.06);
+// }
 .container {
   padding: 0.5em 1em 1em;
   max-width: calc(900px + 1em);
@@ -278,10 +281,6 @@ img {
 
 .cf:after {
   clear: both;
-}
-
-html body {
-  background-color: rgba(255, 255, 255, 0.5);
 }
 
 

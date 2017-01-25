@@ -7,12 +7,11 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
   </head>
-
+  
   <body id="<%=current_user.id if current_user%>">
-    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.js"></script>
-    <header>
+
     <%= render 'layouts/navigation' %>
-  </header>
+    <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.js"></script>
 
     <%= yield %>
     <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
