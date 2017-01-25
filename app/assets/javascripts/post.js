@@ -15,12 +15,9 @@ class Post{
     this.pins = pins
   }
 
-
-
   appendImage(){
     var str = this.content
     if(str.length > 200) str = str.substring(0,200) + "...." + `<a href="/posts/${this.id}">Read More</a>`
-    debugger;
     return `<div class='post'>
       <a href='/posts/${this.id}'>
         <div class='image' style='background-image: url(${this.avatar.url})'>
@@ -33,7 +30,7 @@ class Post{
         </div>
         <div class='content'>
           <h1>${this.title}</h1>
-          <p>${this.content}</p>
+          <p>${str}</p>
           <div class='meta'>
             <button>Edit</button>
         </div>
@@ -80,7 +77,6 @@ function selectedImage(event){
     dataType: 'json',
     method: 'GET',
     success: function(data){
-      debugger;
 
       var user = new User(data.post.user.email, data.post.user.id, data.post, data.post.pins)
       var post = new Post(data.post.avatar, data.post.car_rental, data.post.climate, data.post.content, data.post.diet, data.post.flight, data.post.id, data.post.title, data.post.total_cost, data.post.destination, data.post.user, data.post.pins)
@@ -88,17 +84,24 @@ function selectedImage(event){
       $(".post_details").append(post.appendPostDetail())
     }
   })
-
 }
-
-// function displayPost(data){
-//   var object = data.post
-//   var post = new Post(object.avatar, object.car_rental, object.climate, object.content, object.diet, object.flight, object.id, object.title, object.total_cost, object.destination, object.user, object.pins)
-//   $('#post_show').html(post.appendPostDetail())
-// }
 
 
 function destinationPosts(object){
   var post = new Post(object.avatar, object.car_rental, object.climate, object.content, object.diet, object.flight, object.id, object.title, object.total_cost, object.destination, object.user, object.pins)
   $(".blog-posts").append(post.appendImage())
+}
+
+function allBlogs(){
+  $.ajax({
+    url: '/posts',
+    method: 'get',
+    success: function(data){
+      $(".blog-posts").html("")
+      data.forEach((p) => {
+        var post = new Post(p.avatar, p.car_rental, p.climate, p.content, p.diet, p.flight, p.id, p.title, p.total_cost, p.destination, p.user, p.pins)
+        $(".blog-posts").append(post.appendImage())
+      })
+    }
+  })
 }

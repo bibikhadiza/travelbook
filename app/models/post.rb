@@ -6,6 +6,8 @@ class Post < ActiveRecord::Base
   validates :title, :flight, :total_cost, :diet, :climate, :content, :car_rental, presence: true
   validates :avatar, presence: true, allow_blank: false
   validate :must_have_a_destination
+  scope :all_posts, -> {Post.order(id: :desc)}
+
 
   def must_have_a_destination
     if !self.destination_id

@@ -1,5 +1,9 @@
 class PostsController < ApplicationController
 
+  def index
+    @posts = Post.all_posts
+    render json: @posts
+  end
 
 
   def new
@@ -11,9 +15,7 @@ class PostsController < ApplicationController
 
 
   def create
-    binding.pry
     @post = Post.new(post_params)
-    binding.pry
     if @post.save
       render json: @post
     else

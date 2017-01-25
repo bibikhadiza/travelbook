@@ -23,6 +23,11 @@ $(document).on('turbolinks:load', function(){
     $(".error").hide()
   })
 
+  $('#blogs').on('click', function(event){
+    event.preventDefault()
+    allBlogs()
+  })
+
   $('form.new_post').on('submit', function(event){
     event.preventDefault();
     var form = $('form.new_post')[0];
@@ -50,15 +55,6 @@ $(document).on('turbolinks:load', function(){
     })
   })
 });
-
-function rand(min, max) {
-  return Math.floor(Math.random() * max) + min;
-}
-
-// document.querySelectorAll('.post:not(.featured)').forEach((post) => {
-//   post.querySelector('.image').style.backgroundImage = `url("https://unsplash.it/300/300/?image=${rand(100, 1000)}")`;
-// });
-
 
 function makeCall(){
   if($(".blog-posts").length){
