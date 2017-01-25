@@ -51,7 +51,13 @@ $(document).on('turbolinks:load', function(){
   })
 });
 
+function rand(min, max) {
+  return Math.floor(Math.random() * max) + min;
+}
 
+// document.querySelectorAll('.post:not(.featured)').forEach((post) => {
+//   post.querySelector('.image').style.backgroundImage = `url("https://unsplash.it/300/300/?image=${rand(100, 1000)}")`;
+// });
 
 
 function makeCall(){
@@ -63,7 +69,7 @@ function makeCall(){
       success: function(data){
           data.posts.forEach((post) => {
           var userPost = new Post(post.avatar, post.car_rental, post.climate, post.content, post.diet, post.flight, post.id, post.title, post.total_cost)
-           $('#show_image').append(userPost.appendImage())
+           $('.post featured').append(userPost.appendImage())
         });
       }
     });
