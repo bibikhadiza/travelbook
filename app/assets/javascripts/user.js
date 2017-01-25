@@ -61,7 +61,7 @@ function rand(min, max) {
 
 
 function makeCall(){
-  if($(".post_image").length){
+  if($(".blog-posts").length){
     id = $('body').attr('id')
     $.ajax({
       url: `/users/${id}.json`,
@@ -69,7 +69,7 @@ function makeCall(){
       success: function(data){
           data.posts.forEach((post) => {
           var userPost = new Post(post.avatar, post.car_rental, post.climate, post.content, post.diet, post.flight, post.id, post.title, post.total_cost)
-           $('.post featured').append(userPost.appendImage())
+           $(".blog-posts").append(userPost.appendImage())
         });
       }
     });

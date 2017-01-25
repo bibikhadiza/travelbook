@@ -19,24 +19,26 @@ class Post{
 
   appendImage(){
     var str = this.content
-    // if(str.length > 200) str = str.substring(0,200) + "...." + `<a href="/posts/${this.id}">Read More</a>`
+    if(str.length > 200) str = str.substring(0,200) + "...." + `<a href="/posts/${this.id}">Read More</a>`
     debugger;
-    return `<div class="item">
-              <div class="image">
-                <img src=${this.avatar.url}>
-                </div>
-                <div class="content">
-                  <a class="header">${this.title}</a>
-                  <div class="description">
-                    <p>${this.content}</p>
-                  </div>
-                  <div class="extra">
-                    <div class="ui right floated primary button">
-                      Edit
-                    </div>
-                  </div>
-                </div>
-              </div>`
+    return `<div class='post'>
+      <a href='/posts/${this.id}'>
+        <div class='image' style='background-image: url(${this.avatar.url})'>
+          <div class='time'>
+            <div class='date'>
+              2
+            </div>
+            <div class='month'>MAR</div>
+          </div>
+        </div>
+        <div class='content'>
+          <h1>${this.title}</h1>
+          <p>${this.content}</p>
+          <div class='meta'>
+            <button>Edit</button>
+        </div>
+      </a>
+    </div>`
   }
 
   appendPostDetail(){
@@ -98,5 +100,5 @@ function selectedImage(event){
 
 function destinationPosts(object){
   var post = new Post(object.avatar, object.car_rental, object.climate, object.content, object.diet, object.flight, object.id, object.title, object.total_cost, object.destination, object.user, object.pins)
-  $('.ui.divided.items').append(post.appendImage())
+  $(".blog-posts").append(post.appendImage())
 }
