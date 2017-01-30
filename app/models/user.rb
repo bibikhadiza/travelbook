@@ -18,8 +18,6 @@ class User < ActiveRecord::Base
   end
 
 
-
-
   def post_pins
     arr = []
     self.posts.each do |post|
@@ -28,13 +26,6 @@ class User < ActiveRecord::Base
       arr.sum
   end
 
-  # def self.active_pins
-  #   where(:status => "true")
-  # end
-
-  # def inactive_pins
-  #   self.pins.where(:status => "false")
-  # end
 
 
 

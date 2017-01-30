@@ -16,6 +16,14 @@ class Post{
   }
 
   appendImage(){
+
+    var error;
+
+    if(document.body.id == this.user.id){
+      error = "<button id=edit>Edit</button>"
+    }else{
+      error = null
+    }
     var str = this.content
     if(str.length > 200) str = str.substring(0,200) + "...." + `<a href="/posts/${this.id}">Read More</a>`
     return `<div class='post'>
@@ -31,9 +39,9 @@ class Post{
         <div class='content'>
           <h1>${this.title}</h1>
           <p>${str}</p>
-          <div class='meta'>
-            <button>Edit</button>
-        </div>
+          <div class='meta'>`
+            + error +
+        `</div>
       </a>
     </div>`
   }
@@ -93,6 +101,7 @@ function destinationPosts(object){
 }
 
 function allBlogs(){
+  debugger;
   $.ajax({
     url: '/posts',
     method: 'get',

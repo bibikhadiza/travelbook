@@ -1,3 +1,5 @@
+
+
 <% if !user_signed_in? %>
   <%= link_to "Sign in with Facebook", user_facebook_omniauth_authorize_path %>
     <br><br>
@@ -28,14 +30,13 @@
       <li><a id="my-pins">Pins</a></li>
     </ul>
   </nav>
-    <div class="ui search">
-      <div class="ui icon input">
-        <%= form_tag(destinations_path, :method => "get", id: "search-form") do %>
-          <%= text_field_tag :search, params[:search], placeholder: "Search Destinations" %>
-        <% end %>
-        <i class="search link icon"></i>
-      </div>
+  <div class="ui search">
+    <div class="ui icon input">
+      <input class="prompt" type="text" placeholder="Search Destination...">
+      <i class="search icon"></i>
     </div>
+    <div class="results"></div>
+  </div>
     <div id="log_Out">
       <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "ui item"%>
     </div>

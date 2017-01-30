@@ -28,6 +28,7 @@ $(document).on('turbolinks:load', function(){
     allBlogs()
   })
 
+
   $('form.new_post').on('submit', function(event){
     event.preventDefault();
     var form = $('form.new_post')[0];
@@ -64,7 +65,7 @@ function makeCall(){
       method: 'GET',
       success: function(data){
           data.posts.forEach((post) => {
-          var userPost = new Post(post.avatar, post.car_rental, post.climate, post.content, post.diet, post.flight, post.id, post.title, post.total_cost)
+          var userPost = new Post(post.avatar, post.car_rental, post.climate, post.content, post.diet, post.flight, post.id, post.title, post.total_cost, post.destination, post.user, post.pins)
            $(".blog-posts").append(userPost.appendImage())
         });
       }

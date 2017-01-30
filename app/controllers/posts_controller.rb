@@ -23,12 +23,6 @@ class PostsController < ApplicationController
     end
   end
 
-  #we first instantiate a new object a if an id is set to the destination it post should be valid
-  #we check the destination_attributes post model method
-
-
-
-
   def show
     @post = Post.find_by(id: params[:id])
     current_user.pins.map do |pin|
