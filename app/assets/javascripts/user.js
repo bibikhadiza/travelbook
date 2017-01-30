@@ -10,6 +10,7 @@ class User{
 
 var result;
 var id;
+var content;
 
 $(document).on('turbolinks:load', function(){
   makeCall();
@@ -23,11 +24,16 @@ $(document).on('turbolinks:load', function(){
     $(".error").hide()
   })
 
+  $('.ui.icon.input').on('input', function() {
+    $('.ui.search').search({
+      source: content
+    })
+  });
+
   $('#blogs').on('click', function(event){
     event.preventDefault()
     allBlogs()
   })
-
 
   $('form.new_post').on('submit', function(event){
     event.preventDefault();
@@ -71,4 +77,14 @@ function makeCall(){
       }
     });
   }
+}
+
+function makeDestinationCall(){
+  $.ajax({
+    url: "/destinations",
+    method: "GET",
+    success: function(data){
+    content = data
+    }
+  })
 }

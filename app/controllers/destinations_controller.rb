@@ -6,7 +6,7 @@ class DestinationsController < ApplicationController
   def index
     arr = []
     Destination.all.each do |des|
-      hash = {"title": des.name}
+      hash = {title: des.name}
       arr << hash
     end
     render json: arr
