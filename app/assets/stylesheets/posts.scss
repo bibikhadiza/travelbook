@@ -37,7 +37,7 @@ nav ul li {
   height: 60px;
   text-align: center;
   line-height: 55px;
-   font-size: 1rem;
+  font-size: 1rem;
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
 
 }
@@ -286,4 +286,21 @@ img {
 
 .check {
   background-color: white;
+}
+
+.slideShow {
+  // position: absolute;
+  //
+  //     width: 100%;
+      overflow: hidden;
+  //      background-color: #3b444f;
+  //     height: 100%;
+       opacity: 0.89;
+      background-image: url("cba1a118f01e792ad2ae3c2f4d2e83b4.jpg");
+      background-size: cover;
+      background-position: 50%;
+  //
+  //     background-color: purple;
+  width:100%;
+  height:100%;
 }

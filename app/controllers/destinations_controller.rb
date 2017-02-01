@@ -4,14 +4,13 @@ class DestinationsController < ApplicationController
 
 
   def index
-    arr = []
-    Destination.all.each do |des|
-      hash = {title: des.name}
-      arr << hash
-    end
-    render json: arr
+    render json: Destination.all
   end
 
+  def show
+    destination = Destination.find_by(id: params[:id])
+    render json: destination
+  end
 
   def show
     if @destination && @destination.posts.present?

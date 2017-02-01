@@ -10,7 +10,7 @@ class User{
 
 var result;
 var id;
-var content;
+
 
 $(document).on('turbolinks:load', function(){
   makeCall();
@@ -28,12 +28,15 @@ $(document).on('turbolinks:load', function(){
     $('.ui.search').search({
       source: content
     })
+
   });
 
   $('#blogs').on('click', function(event){
     event.preventDefault()
     allBlogs()
   })
+
+  if()
 
   $('form.new_post').on('submit', function(event){
     event.preventDefault();
@@ -84,7 +87,9 @@ function makeDestinationCall(){
     url: "/destinations",
     method: "GET",
     success: function(data){
-    content = data
+    content = data.map(function(dest) {
+      return {title: dest.name, url: `/destinations/${dest.id}`}
+    })
     }
   })
 }

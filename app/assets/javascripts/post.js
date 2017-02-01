@@ -100,6 +100,8 @@ function destinationPosts(object){
   $(".blog-posts").append(post.appendImage())
 }
 
+
+//used to generate all posts for home page
 function allBlogs(){
   debugger;
   $.ajax({
