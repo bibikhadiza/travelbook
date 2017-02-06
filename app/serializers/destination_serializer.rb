@@ -1,5 +1,4 @@
 class DestinationSerializer < ActiveModel::Serializer
-  attributes :id, :name
+  attributes :id, :name, :pictures
   has_many :posts
 end
-  

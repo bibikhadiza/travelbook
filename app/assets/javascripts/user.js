@@ -36,7 +36,9 @@ $(document).on('turbolinks:load', function(){
     allBlogs()
   })
 
-  if()
+  if($(".heroSlideShow").length){
+    displayDesImages()
+  }
 
   $('form.new_post').on('submit', function(event){
     event.preventDefault();

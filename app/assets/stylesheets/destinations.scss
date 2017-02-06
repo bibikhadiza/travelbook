@@ -1,3 +1,27 @@
 // Place all the styles related to the destinations controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.fade-group {
+  margin: 0 auto;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+.fade-group img{
+  position: absolute;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0.89;
+}
+
+.fade-group img.active {
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0.89;
+}

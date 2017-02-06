@@ -8,18 +8,12 @@ class DestinationsController < ApplicationController
   end
 
   def show
-    destination = Destination.find_by(id: params[:id])
-    render json: destination
+    @des = Destination.find_by(id: params[:id])
+    respond_to do |f|
+        f.html { render :show }
+        f.json { render json: @des, adapter: :json}
+      end
   end
-
-  def show
-    if @destination && @destination.posts.present?
-      @destination_posts = @destination.posts
-    else
-      flash[:notice] = "This destination does not have any posts"
-    end
-  end
-
 
 
   def find_destination

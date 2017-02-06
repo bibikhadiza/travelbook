@@ -33,8 +33,7 @@ class PostsController < ApplicationController
     end
     respond_to do |f|
         f.html { render :show }
-        f.json { render json: @post, adapter: :json}
-
+        f.json { render json: @post, adapter: :json} 
       end
   end
 
