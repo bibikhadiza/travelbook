@@ -25,3 +25,20 @@
   object-fit: cover;
   opacity: 0.89;
 }
+
+.fade-group h2{
+   position: absolute;
+   top: 200px;
+   left: 0;
+   width: 100%;
+   z-index: 4;
+   font-size: 8rem;
+   text-align: center;
+   font-weight: 600;
+  //  letter-spacing: -.3rem;
+   line-height: .9;
+   margin: .67em 0;
+   font-weight: 600;
+   color: white;
+   display: block;
+}

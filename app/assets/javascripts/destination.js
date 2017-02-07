@@ -20,6 +20,7 @@ function displayDesImages(){
               var result = `<img src=./../assets/${p.split("/")[9]} height="400" width="400">`
           }
           $(".fade-group").append(result)
+          $('.fade-group h2').html(data.destination.name)
         })
         slideShow()
         } else {

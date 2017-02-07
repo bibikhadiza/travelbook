@@ -12,7 +12,6 @@
 
 #MenuHolder {
 display: flex;
-// margin: 1rem 0;
 font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
 background: white;
 font-weight: 400;
@@ -20,9 +19,7 @@ border-bottom: 1px solid rgba(34,36,38,.15);
 box-shadow: 0 1px 2px 0 rgba(34,36,38,.15);
 border-radius: .28571429rem;
 min-height: 2.85714286em;
-
 }
-
 
 nav ul {
   margin: 0;
@@ -39,7 +36,6 @@ nav ul li {
   line-height: 55px;
   font-size: 1rem;
   font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
-
 }
 
 nav ul li a {
@@ -50,8 +46,6 @@ nav ul li a {
 nav a {
   display: block;
 }
-
-
 
 nav ul li:Hover {
   border-bottom: 3px solid #333;
@@ -64,7 +58,7 @@ nav ul ul {
 nav ul li:Hover > ul {
   position: relative;
   display: block;
-  z-index: 4;
+  z-index: 6;
 }
 
 nav ul ul li {
@@ -85,7 +79,6 @@ div.ui.search {
   top: 18px
 }
 
-
 .sizing {
   width: 800px;
   margin: 0 auto;
@@ -93,13 +86,11 @@ div.ui.search {
 }
 
 p {
-  // border-bottom:1px dotted;
   margin-left:auto;
   margin-right:auto;
   text-align:center;
-  width: 400px; /* whatever width you want */
+  width: 400px;
 }
-
 
 @import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800|Merriweather:300);
 @import url(http://markmurray.co/codepen/customstyle.css);
@@ -116,14 +107,12 @@ a, a:visited {
 }
 
 html body {
-  font-family: 'Open Sans', sans-serif;
+  // font-family: 'Open Sans', sans-serif;
+  font-family: Helvetica;
   font-size: 100%;
   background-color: rgba(0, 0, 0, 0.06);
 }
 
-// #show {
-// background-color: rgba(0, 0, 0, 0.06);
-// }
 .container {
   padding: 0.5em 1em 1em;
   max-width: calc(900px + 1em);
