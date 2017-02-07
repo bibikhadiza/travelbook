@@ -16,9 +16,7 @@ class Post{
   }
 
   appendImage(){
-
     var error;
-
     if(document.body.id == this.user.id){
       error = "<button id=edit>Edit</button>"
     }else{
@@ -76,7 +74,6 @@ class Post{
   }
 }
 
-
 function selectedImage(event){
   event.preventDefault();
   var url = event.srcElement.parentNode.pathname
@@ -94,14 +91,11 @@ function selectedImage(event){
   })
 }
 
-
 function destinationPosts(object){
   var post = new Post(object.avatar, object.car_rental, object.climate, object.content, object.diet, object.flight, object.id, object.title, object.total_cost, object.destination, object.user, object.pins)
   $(".blog-posts").append(post.appendImage())
 }
 
-
-//used to generate all posts for home page
 function allBlogs(){
   debugger;
   $.ajax({

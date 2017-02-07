@@ -31,6 +31,11 @@ $(document).on('turbolinks:load', function(){
 
   });
 
+  $('#home').on('click', function(event){
+    debugger;
+    makeCall()
+  })
+
   $('#blogs').on('click', function(event){
     event.preventDefault()
     allBlogs()
