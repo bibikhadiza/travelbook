@@ -9,10 +9,12 @@ class Destination{
 }
 
 function displayDesImages(){
+  var id = $('.heroSlideShow').attr('id')
   $.ajax({
-    url: '/destinations/16.json',
+    url: `/destinations/${id}.json`,
     method: 'GET',
     success: function(data){
+      debugger;
       if( data.destination.posts.length < 2){
         data.destination.pictures.forEach((p, i) => {
           if(i == 0){
