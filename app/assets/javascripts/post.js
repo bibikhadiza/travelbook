@@ -16,6 +16,7 @@ class Post{
   }
 
   appendImage(){
+    debugger;
     var error;
     if(document.body.id == this.user.id){
       error = "<button id=edit>Edit</button>"
@@ -92,7 +93,9 @@ function selectedImage(event){
 }
 
 function destinationPosts(object){
+  debugger;
   var post = new Post(object.avatar, object.car_rental, object.climate, object.content, object.diet, object.flight, object.id, object.title, object.total_cost, object.destination, object.user, object.pins)
+
   $(".blog-posts").append(post.appendImage())
 }
 

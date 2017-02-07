@@ -41,9 +41,11 @@ $(document).on('turbolinks:load', function(){
   }
 
   $('form.new_post').on('submit', function(event){
+    debugger;
     event.preventDefault();
     var form = $('form.new_post')[0];
     var formData = new FormData(form);
+    debugger;
     $.ajax({
       url: '/posts',
       method: 'POST',
@@ -52,6 +54,7 @@ $(document).on('turbolinks:load', function(){
       contentType: false,
       processData: false,
       success: function(data){
+        debugger;
         destinationPosts(data);
       },
       error: function(err){
@@ -70,6 +73,7 @@ $(document).on('turbolinks:load', function(){
 
 function makeCall(){
   if($(".blog-posts").length){
+    debugger;
     id = $('body').attr('id')
     $.ajax({
       url: `/users/${id}.json`,

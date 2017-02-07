@@ -9,13 +9,15 @@ class Destination{
 }
 
 function displayDesImages(){
+  debugger;
   var id = $('.heroSlideShow').attr('id')
   $.ajax({
     url: `/destinations/${id}.json`,
     method: 'GET',
     success: function(data){
       debugger;
-      if( data.destination.posts.length < 2){
+      if( data.destination.posts.length < 3){
+        debugger;
         data.destination.pictures.forEach((p, i) => {
           if(i == 0){
             var result = `<img class="active" src=./../assets/${p.split("/")[9]} height="400" width="400">`} else {
@@ -27,13 +29,16 @@ function displayDesImages(){
         slideShow()
         } else {
           data.destination.posts.forEach((p, i ) => {
+            debugger;
             if(i == 0){
-              var result = `<img class="active" src=./../assets/${p.avatar.url.split("/")[9]} height="400" width="400">`} else {
-                var result = `<img src=./../assets/${p.avatar.url.split("/")[9]} height="400" width="400">`
+              debugger;
+              var result = `<img class="active" src=./../${p.avatar.url} height="400" width="400">`} else {
+                var result = `<img src=./../${p.avatar.url} height="400" width="400">`
             }
           $(".fade-group").append(result)
-          })
+          $('.fade-group h2').html(data.destination.name)
           slideShow()
+          })
       }
     }
   })

@@ -15,8 +15,10 @@ class PostsController < ApplicationController
 
 
   def create
+    binding.pry
     @post = Post.new(post_params)
     if @post.save
+      binding.pry
       render json: @post
     else
       render json: @post.errors.full_messages, status: 422
@@ -33,7 +35,7 @@ class PostsController < ApplicationController
     end
     respond_to do |f|
         f.html { render :show }
-        f.json { render json: @post, adapter: :json} 
+        f.json { render json: @post, adapter: :json}
       end
   end
 
