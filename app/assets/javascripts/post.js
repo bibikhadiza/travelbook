@@ -48,7 +48,7 @@ class Post{
 
   postCards(){
     var date = this.created.split("T")[0]
-    return `<div class="img" style="background-image: url(${this.avatar.url})"><a   target="_blank" href="/posts/${this.id}"><p class="card_date">${date}</p><h3 class="card_title1">${this.title}</h3></a>
+    return `<div class="img" style="background-image: url(${this.avatar.url})"><a   href="/posts/${this.id}"><p class="card_date">${date}</p><h3 class="card_title1">${this.title}</h3></a>
     </div>`
   }
 
