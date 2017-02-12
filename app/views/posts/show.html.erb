@@ -1,33 +1,20 @@
-<% if @post.user_id != current_user.id %>
-  <% if !@pin %>
-    <%= button_to "Pin Post", post_pins_path(@post), method: :post%>
-  <%end%>
-  <%= link_to @post.user.email, user_path %>
-<%end%>
+<%= render partial: "posts/form", locals: {post: @post, destination: Destination.new}%>
 
-<div id="post_show">
-    <h2>Title of Entry: <%= @post.title %></h2>
-    <h3> Trip to: <%= @post.destination.name %> </h3>
-    <br>
-    Cost of Trip : <%= @post.total_cost%>
-    <br>
-    <h3>Ratings for Trip Factors</h3>
-    <br>
-    Flight: <%= @post.flight%>
-    <br>
-    Climate: <%= @post.climate%>
-    <br>
-    Car_rental: <%= @post.car_rental %>
-    <br>
-    Food: <%= @post.diet %>
-    <br>
-    Content: <%= @post.content%>
-    <br></br>
-    <%=image_tag @post.avatar.url%>
-    <br></br>
+<div class="post_show">
+  <h1><%=@post.title%></h1>
+  <span><%=@post.destination.name%></span>
+  <div class="showpage_image" style="background-image: url(<%=@post.avatar%>)"></div>
+  <p>From 1975 to 2008, home at the Pole was known familiarly as ‘the Dome,’ or, affectionately, ‘Dome, Sweet Dome.’ Built from 1971 to 1975, the silver-grey aluminum geodesic Dome was 50m in diameter at its base and 15m high. It covered three structures, each two stories high, which provided accommodations, dining, laboratory and recreational facilities. Although the Dome protected these buildings and their occupants from the wind, it did nothing about the cold; it was unheated. It had a packed snow floor and an opening at the top to let out water vapor. Over time, as the base became submerged in snow and ice, parts of the complex became unsafe. Occasional power brownouts and fuel leaks threatened station security, and the drifting snow began to crush the Dome. Because of all these problems, the US government built a new above-snow facility.</p>
 
-  <% if current_user.id == @post.user_id %>
-    <button class="update_post" id='<%=@post.id%>'>Update Post</button>
+  <p>From 1975 to 2008, home at the Pole was known familiarly as ‘the Dome,’ or, affectionately, ‘Dome, Sweet Dome.’ Built from 1971 to 1975, the silver-grey aluminum geodesic Dome was 50m in diameter at its base and 15m high. It covered three structures, each two stories high, which provided accommodations, dining, laboratory and recreational facilities. Although the Dome protected these buildings and their occupants from the wind, it did nothing about the cold; it was unheated. It had a packed snow floor and an opening at the top to let out water vapor. Over time, as the base became submerged in snow and ice, parts of the complex became unsafe. Occasional power brownouts and fuel leaks threatened station security, and the drifting snow began to crush the Dome. Because of all these problems, the US government built a new above-snow facility.</p>
+
+  <%if current_user.id == @post.user_id %>
+    <a class="update_post" id='<%=@post.id%>'>Update Post</a>
   <%end%>
 
+  <% if @post.user_id != current_user.id %>
+    <% if !@pin %>
+      <a href="/posts/<%=@post.id%>/pins" class="pin_it">Pin</a>
+    <%end%>
+  <%end%>
 </div>

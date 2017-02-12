@@ -54,16 +54,12 @@ class Post{
 
   appendPostDetail(){
     if(this.user.id == result){
-    return `<h2> Title of Entry: ${this.title}</h2><h3> Trip to:    ${this.destination.name}</h3><br>Cost of Trip : ${this.total_cost}<br>
-    <h3>Ratings for Trip Factors</h3><br>Flight: ${this.flight}<br>Climate: ${ this.climate}<br>Car_rental: ${this.car_rental}<br>Food: ${this.diet}<br>
-    Content: ${this.content}<br></br><img src=${this.avatar.url} style="max-height: 200px; max-width: 200px;">
+    return `
     <a href='/posts/${this.id}/edit'>Update Post</a>`
   }else{
     this.pins.forEach((pin)=>{
       if(pin.user_id == result && this.user.id != result){
-        return `<h2> Title of Entry: ${this.title}</h2><h3> Trip to: ${this.destination.name}</h3><br>Cost of Trip : ${this.total_cost}<br>
-        <h3>Ratings for Trip Factors</h3><br>Flight: ${this.flight}<br>Climate: ${ this.climate}<br>Car_rental: ${this.car_rental}<br>Food: ${this.diet}<br>
-        Content: ${this.content}<br></br><img src=${this.avatar.url} style="max-height: 200px; max-width: 200px;"><a href=/posts/${this.id}/pins>Pin Post</a>`
+        return `<a href=/posts/${this.id}/pins>Pin Post</a>`
       }
     })
   }

@@ -274,7 +274,88 @@ img {
   clear: both;
 }
 
-
 .check {
   background-color: white;
+}
+
+.post_show{
+  text-align: center;
+  margin-top: 100px;
+}
+
+.post_show h1{
+  line-height:1.2;
+  font-size:5.5rem;
+  letter-spacing:-.1rem;
+  font-weight:600;
+  color:#2c3643;
+}
+
+span{
+  font-family: 'Miller Daily', 'Georgia', 'Times', 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 16px;
+  letter-spacing: .4px;
+  line-height: 1.3125;
+  color: #297cbb;
+}
+
+.showpage_image{
+  background-size:cover;
+  margin: 0 auto;
+  position:relative;
+  height: 350px;
+  width: 570px;
+  background-position: 50% 50%;
+  top: 80px;
+}
+
+.post_show p{
+  color: #3b444f;
+  display: block;
+  position:relative;
+  margin: 0 auto;
+  top: 100px;
+  font-family: 'Miller Daily', 'Georgia', 'Times', 'Times New Roman', serif;
+  font-size: 1em;
+  line-height: 1.8;
+  font-size: 20px;
+  text-align: left;
+  margin-bottom: 1.4em;
+  margin-top: 1.4em;
+  width: 550px;
+}
+
+.update_post {
+  border: 0.1rem solid;
+  border-radius: 1.7rem;
+  border-width: thin;
+  width: 150px;
+  line-height: 0;
+  padding: 1.7rem .2rem 1.5rem;
+  font-size: .9rem;
+  font-weight: 500;
+  color: #3b444f;
+  display: block;
+  border-color: rgba(59,68,79,.6);
+  position: relative;
+  top: 130px;
+  margin: 0 auto;
+}
+
+.pin_it {
+  border: 0.1rem solid;
+  border-radius: 1.7rem;
+  border-width: thin;
+  width: 150px;
+  line-height: 0;
+  padding: 1.7rem .2rem 1.5rem;
+  font-size: .9rem;
+  font-weight: 500;
+  color: #3b444f;
+  display: block;
+  border-color: rgba(59,68,79,.6);
+  position: relative;
+  top: 130px;
+  margin: 0 auto;
 }
