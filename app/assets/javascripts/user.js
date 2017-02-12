@@ -15,37 +15,34 @@ var id;
 $(document).on('turbolinks:load', function(){
   makeCall();
   $('#my-pins').on('click', function(){
-    makePinAjaxCall(event);
+    debugger;
+    $('.small.modal').modal('show');
   })
-
   $('#nested').on('click', function(event){
-    event.preventDefault()
     $('.ui.modal').modal('show')
     $(".error").hide()
   })
+
+  if($(".all-posts").length){
+    allBlogs()
+  }
 
   $('.ui.icon.input').on('input', function() {
     $('.ui.search').search({
       source: content
     })
-
   });
 
-  $('#blogs').on('click', function(event){
-    event.preventDefault()
-    allBlogs()
-  })
 
   if($(".heroSlideShow").length){
     displayDesImages()
   }
 
   $('form.new_post').on('submit', function(event){
-    debugger;
     event.preventDefault();
     var form = $('form.new_post')[0];
-    var formData = new FormData(form);
     debugger;
+    var formData = new FormData(form);
     $.ajax({
       url: '/posts',
       method: 'POST',
@@ -54,17 +51,20 @@ $(document).on('turbolinks:load', function(){
       contentType: false,
       processData: false,
       success: function(data){
-        debugger;
-        destinationPosts(data);
+        if($(".blog-posts").length){
+          destinationPosts(data);
+          $('.ui.modal').modal('hide')
+        }else{
+          $('.ui.modal').modal('hide')
+        }
       },
       error: function(err){
-        debugger;
         $('.list').html("")
         $(".error").show()
         err.responseJSON.forEach((e) => {
           var error = `<li>${e}</li>`
-          $('.list').append(error)
           document.getElementById("submit_form").disabled = false;
+          $('.list').append(error)
         })
       }
     })
@@ -73,7 +73,6 @@ $(document).on('turbolinks:load', function(){
 
 function makeCall(){
   if($(".blog-posts").length){
-    debugger;
     id = $('body').attr('id')
     $.ajax({
       url: `/users/${id}.json`,
@@ -99,3 +98,19 @@ function makeDestinationCall(){
     }
   })
 }
+
+
+// function generateForm(){
+//   $.ajax({
+//     url: '/posts/new',
+//     method: "GET",
+//     dataType: "text",
+//     success: function(data){
+//       debugger;
+//       $('#model').hide()
+//       $('#model').html(`<div class="header">Share an Experience</div>` + data.split(`<input id="hidden" style="display: none;">`)[1])
+//       $('.ui.modal').modal('show')
+//       $(".error").hide()
+//     }
+//   })
+// }

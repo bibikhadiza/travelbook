@@ -1,15 +1,23 @@
 class PostsController < ApplicationController
 
+
   def index
     @posts = Post.all_posts
-    render json: @posts
+    respond_to do |f|
+        f.html { render :index }
+        f.json { render json: @posts }
+      end
   end
 
 
   def new
     @post = Post.new
     @destinations = Destination.all
-    @post.destination.build
+    respond_to do |f|
+        f.html { render :new }
+        f.json { render :new}
+      end
+
   end
 
 

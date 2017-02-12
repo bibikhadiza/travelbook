@@ -6,18 +6,16 @@ class Destination{
     this.posts = posts;
     this.pictures = pictures
   }
+
 }
 
 function displayDesImages(){
-  debugger;
   var id = $('.heroSlideShow').attr('id')
   $.ajax({
     url: `/destinations/${id}.json`,
     method: 'GET',
     success: function(data){
-      debugger;
       if( data.destination.posts.length < 3){
-        debugger;
         data.destination.pictures.forEach((p, i) => {
           if(i == 0){
             var result = `<img class="active" src=./../assets/${p.split("/")[9]} height="400" width="400">`} else {
@@ -29,9 +27,7 @@ function displayDesImages(){
         slideShow()
         } else {
           data.destination.posts.forEach((p, i ) => {
-            debugger;
             if(i == 0){
-              debugger;
               var result = `<img class="active" src=./../${p.avatar.url} height="400" width="400">`} else {
                 var result = `<img src=./../${p.avatar.url} height="400" width="400">`
             }
@@ -39,6 +35,15 @@ function displayDesImages(){
           $('.fade-group h2').html(data.destination.name)
           slideShow()
           })
+      }
+
+      if(data.destination.posts.length > 0){
+        data.destination.posts.forEach((p) => {
+          debugger;
+          var post = new Post(p.avatar, p.car_rental, p.climate, p.content, p.diet, p.flight, p.id, p.title, p.total_cost, p.destination, p.user, p.pins, p.created_at)
+          $(".show_cards").append(post.postCards())
+          
+        })
       }
     }
   })

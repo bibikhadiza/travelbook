@@ -108,9 +108,11 @@ a, a:visited {
 
 html body {
   // font-family: 'Open Sans', sans-serif;
-  font-family: Helvetica;
+  // font-family: Helvetica;
+  font-family: Benton Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
   font-size: 100%;
   background-color: rgba(0, 0, 0, 0.06);
+  align-items: center;
 }
 
 .container {

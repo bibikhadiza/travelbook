@@ -1,6 +1,6 @@
 class Post{
 
-  constructor(avatar, car_rental, climate, content, diet, flight, id, title, total_cost, destination, user, pins){
+  constructor(avatar, car_rental, climate, content, diet, flight, id, title, total_cost, destination, user, pins, created){
     this.avatar = avatar;
     this.car_rental = car_rental;
     this.climate = climate;
@@ -13,10 +13,11 @@ class Post{
     this.destination = destination;
     this.user = user;
     this.pins = pins
+    this.created = created
   }
+// }
 
   appendImage(){
-    debugger;
     var error;
     if(document.body.id == this.user.id){
       error = "<button id=edit>Edit</button>"
@@ -45,13 +46,18 @@ class Post{
     </div>`
   }
 
+  postCards(){
+    var date = this.created.split("T")[0]
+    return `<div class="img" style="background-image: url(${this.avatar.url})"><a   target="_blank" href="/posts/${this.id}"><p class="card_date">${date}</p><h3 class="card_title1">${this.title}</h3></a>
+    </div>`
+  }
+
   appendPostDetail(){
     if(this.user.id == result){
-    return `<h2> Title of Entry: ${this.title}</h2><h3> Trip to: ${this.destination.name}</h3><br>Cost of Trip : ${this.total_cost}<br>
+    return `<h2> Title of Entry: ${this.title}</h2><h3> Trip to:    ${this.destination.name}</h3><br>Cost of Trip : ${this.total_cost}<br>
     <h3>Ratings for Trip Factors</h3><br>Flight: ${this.flight}<br>Climate: ${ this.climate}<br>Car_rental: ${this.car_rental}<br>Food: ${this.diet}<br>
     Content: ${this.content}<br></br><img src=${this.avatar.url} style="max-height: 200px; max-width: 200px;">
     <a href='/posts/${this.id}/edit'>Update Post</a>`
-
   }else{
     this.pins.forEach((pin)=>{
       if(pin.user_id == result && this.user.id != result){
@@ -63,9 +69,9 @@ class Post{
   }
 }
 
-  appendPostImage(){
-    return `<a href=/posts/${this.id} ><img src=${this.avatar.url} style="max-height: 200px; max-width: 200px;"></a>`
-  }
+appendPostImage(){
+  return `<a href=/posts/${this.id} ><img src=${this.avatar.url} style="max-height: 200px; max-width: 200px;"></a>`
+}
 
   appendDestinationPost(){
     var id = $('body').attr('id')
@@ -83,7 +89,6 @@ function selectedImage(event){
     dataType: 'json',
     method: 'GET',
     success: function(data){
-
       var user = new User(data.post.user.email, data.post.user.id, data.post, data.post.pins)
       var post = new Post(data.post.avatar, data.post.car_rental, data.post.climate, data.post.content, data.post.diet, data.post.flight, data.post.id, data.post.title, data.post.total_cost, data.post.destination, data.post.user, data.post.pins)
       $(".post_image").html(" ")
@@ -93,22 +98,19 @@ function selectedImage(event){
 }
 
 function destinationPosts(object){
-  debugger;
   var post = new Post(object.avatar, object.car_rental, object.climate, object.content, object.diet, object.flight, object.id, object.title, object.total_cost, object.destination, object.user, object.pins)
-
   $(".blog-posts").append(post.appendImage())
 }
 
 function allBlogs(){
-  debugger;
   $.ajax({
-    url: '/posts',
+    url: '/posts.json',
     method: 'get',
     success: function(data){
-      $(".blog-posts").html("")
+      $(".all-posts").html("")
       data.forEach((p) => {
         var post = new Post(p.avatar, p.car_rental, p.climate, p.content, p.diet, p.flight, p.id, p.title, p.total_cost, p.destination, p.user, p.pins)
-        $(".blog-posts").append(post.appendImage())
+        $(".all-posts").append(`<div class="container"><div class='blog-posts'>` + post.appendImage() + `</div></div>`)
       })
     }
   })
