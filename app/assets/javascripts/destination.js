@@ -39,8 +39,8 @@ function displayDesImages(){
       }
 
       if(data.destination.posts.length > 0){
+        $(".show_cards").html(" ");
         data.destination.posts.forEach((p) => {
-          debugger;
           var post = new Post(p.avatar, p.car_rental, p.climate, p.content, p.diet, p.flight, p.id, p.title, p.total_cost, p.destination, p.user, p.pins, p.created_at)
           $(".show_cards").append(post.postCards())
 
