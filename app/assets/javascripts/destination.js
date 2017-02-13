@@ -16,6 +16,7 @@ function displayDesImages(){
     method: 'GET',
     success: function(data){
       if( data.destination.posts.length < 3){
+        debugger;
         data.destination.pictures.forEach((p, i) => {
           if(i == 0){
             var result = `<img class="active" src=./../assets/${p.split("/")[9]} height="400" width="400">`} else {
@@ -42,7 +43,7 @@ function displayDesImages(){
           debugger;
           var post = new Post(p.avatar, p.car_rental, p.climate, p.content, p.diet, p.flight, p.id, p.title, p.total_cost, p.destination, p.user, p.pins, p.created_at)
           $(".show_cards").append(post.postCards())
-          
+
         })
       }
     }
