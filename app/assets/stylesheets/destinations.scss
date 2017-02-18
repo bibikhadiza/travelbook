@@ -43,9 +43,11 @@
 }
 
 .segment {
+  position: relative;
+  top: 75px;
   border-top: 1px solid;
-  margin-left: 1.5rem;
-  margin-right: 1.5rem;
+  margin-left: 5rem;
+  margin-right: 5rem;
   display: block;
   height: 0;
   content: "";
@@ -59,7 +61,7 @@
   font-weight: 100;
   line-height: 1.3;
   margin-bottom: 6rem;
-  margin-top: 0;
+  margin-top: 80px;
   padding-bottom: 1.5rem;
   position: relative;
   text-align: center;
@@ -129,4 +131,13 @@ div.img:hover {
 div.desc {
   padding: 15px;
   text-align: center;
+}
+
+footer {
+// border-top: .1rem solid #e4e4e4;
+  background-color: red;
+  position:absolute;
+  top:-1;
+  width:100%;
+  height:100px;
 }
