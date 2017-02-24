@@ -1,1 +1,60 @@
-<%= render partial: "posts/form", locals: {destination: @destination, post: @post, url: {:action => "update"}, method: "patch"} %>
+<div class="header">Share an Experience</div>
+  <input id="hidden" style="display: none;">
+
+  <div class="content">
+  <%= form_for @post do |f| %>
+    <div class="input_options">
+        <%= f.hidden_field :user_id, :value => current_user.id %>
+        <%= f.label "Select a Destination"%>
+        <%= f.collection_select :destination_id, Destination.all, :id, :name, :include_blank => true %><br><br>
+
+        <%= f.fields_for :destination, @destination do |des|%>
+          <%= des.label "Or Enter Destination Name" %>
+          <%= des.text_field :name %>
+        <%end%>
+        <%= f.label "Type of Trip"%>
+
+        <select id="vacationType" name="post[vacation_type]">
+          <option value=""></option>
+          <option value="Beaches">Beach</option>
+          <option value="Honeymoon Romantic">Honeymoon Romantic</option>
+          <option value="Wildlife and Safari">WildLife and Safari</option>
+          <option value="Wildlife and Safari">Rainforest and Jungles</option>
+          <option value="Wildlife and Safari">Road Trip</option>
+          <option value="Wildlife and Safari">Family</option>
+          <option value="Wildlife and Safari">Cruise</option>
+        </select>
+
+
+        Post Title: <%=f.text_field :title %>
+        <br>
+        Total Cost of Trip<%= f.text_field :total_cost %>
+        <br></br>
+        Please Rate the Following from 1-5
+        <br>
+        How was your flights? <%=f.radio_button :flight, 1%> 1 <%=f.radio_button :flight, 2%> 2 <%=f.radio_button :flight, 3%> 3 <%=f.radio_button :flight, 4%> 4 <%=f.radio_button :flight, 5%> 5
+        <br>
+        How great was the climate? <%=f.radio_button :climate, 1%> 1 <%=f.radio_button :climate, 2%> 2 <%=f.radio_button :climate, 3%> 3 <%=f.radio_button :climate, 4%> 4 <%=f.radio_button :climate, 5%> 5
+        <br>
+        Was the car rental services Awesome? <%=f.radio_button :car_rental, "1"%> 1 <%=f.radio_button :car_rental, 2%> 2 <%=f.radio_button :car_rental, 3%> 3 <%=f.radio_button :car_rental, 4%> 4 <%=f.radio_button :car_rental, 5%> 5
+        <br>
+        How amazing was the food? <%=f.radio_button :diet, "1"%> 1 <%=f.radio_button :diet, 2%> 2 <%=f.radio_button :diet, 3%> 3 <%=f.radio_button :diet, 4%> 4 <%=f.radio_button :diet, 5%> 5
+        <br></br>
+    </div>
+    <h3>Share Your Experience</h3>
+    <%=f.text_area :content %>
+    <%= f.file_field :avatar %>
+    <br></br>
+    <%=f.submit%>
+  <%end%>
+  </div>
+
+  <div class="error">
+    <ul class="list">
+      <% if @errors %>
+        <% @errors.each do |e| %>
+          <li><%= e %></li>
+        <%end%>
+      <%end%>
+      </ul>
+  </div>

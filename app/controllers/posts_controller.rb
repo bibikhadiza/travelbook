@@ -9,7 +9,6 @@ class PostsController < ApplicationController
       end
   end
 
-
   def new
     @post = Post.new
     @destinations = Destination.all
@@ -17,16 +16,11 @@ class PostsController < ApplicationController
         f.html { render :new }
         f.json { render :new}
       end
-
   end
 
-
-
   def create
-    binding.pry
     @post = Post.new(post_params)
     if @post.save
-      binding.pry
       render json: @post
     else
       render json: @post.errors.full_messages, status: 422
@@ -47,36 +41,20 @@ class PostsController < ApplicationController
       end
   end
 
-
-
-
-
   def edit
     @post = Post.find_by(id: params[:id])
     @destination = @post.destination
   end
 
-
   def update
-    @post = Post.find_by(id: params[:destination][:posts_attributes]["0"][:id])
-    @destination = Destination.find_by(name: params[:destination][:name])
-      if @post
-        x = params[:destination][:posts_attributes]["0"]
-        if @destination.update(location_params) && @post.update(title: x[:title], total_cost: x[:total_cost], flight: x[:flight], climate: x[:climate], car_rental: x[:car_rental], diet: x[:diet], content: x[:content])
-          redirect_to user_path(current_user)
-        else
-          render "edit"
-        end
+    @post = Post.find_by(id: params[:id])
+      if @post.update(post_params)
+        redirect_to user_path(current_user)
       else
-        if @destination.update(location_params)
-          redirect_to user_path(current_user)
-        else
-          @destination.posts.build
-          render "edit"
-        end
-      end
+        @errors = @post.errors.full_messages
+      render :edit
+    end
   end
-
 
 
   private
@@ -84,7 +62,6 @@ class PostsController < ApplicationController
   def post_params
     params.require(:post).permit(:title, :vacation_type, :total_cost, :flight, :climate, :car_rental, :diet, :content, :user_id, :avatar, :destination_id, :destination_attributes => [:name])
   end
-
 
 
 end

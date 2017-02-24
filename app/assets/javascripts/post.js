@@ -20,7 +20,7 @@ class Post{
   appendImage(){
     var error;
     if(document.body.id == this.user.id){
-      error = "<button id=edit>Edit</button>"
+      error = `<a href="/posts/${this.id}/edit"><button id=edit>Edit</button></a>`
     }else{
       error = null
     }

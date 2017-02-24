@@ -25,6 +25,10 @@ class Post < ActiveRecord::Base
       destination_name = destination_attributes["name"].split.map(&:capitalize)*' '
       self.destination = Destination.find_or_create_by(name: destination_name)
     end
+
+    if self.destination && destination_attributes["name"].empty?
+      self.destination = Destination.find_by(id: self.destination.id)
+    end
   end
   #if there is a destinaton id and the name key is provided in the destinations_attribute params
   #then we set the destination to nil for the post object because we do not want two destinations entered.
