@@ -361,3 +361,57 @@ span{
   top: 130px;
   margin: 0 auto;
 }
+
+.form_title{
+  text-align: center;
+  color: #2c3643;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 3rem;
+  position: relative;
+  margin-top: 5%;
+}
+
+.input_options {
+  text-align: center;
+}
+
+.edit {
+  border-radius: 0;
+  background-color: white;
+  padding: 20px;
+  width: 70%;
+  height: 60%;
+  margin: auto;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  border: 1px solid rgba(212, 212, 213, 0.81);
+  border-radius: 6px;
+}
+
+.custom_field {
+  width: 30%;
+  background-color: white;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.edit textarea {
+  width: 80%;
+  height: 340px;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.ui.button {
+  background: white;
+  border: 1px solid rgba(212, 212, 213, 0.81);
+}
+
+select {
+  background-color: white;
+}

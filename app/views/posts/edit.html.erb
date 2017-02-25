@@ -1,19 +1,21 @@
-<div class="header">Share an Experience</div>
+<div class="edit">
+<h1 class="form_title">Share an Experience</h1>
   <input id="hidden" style="display: none;">
 
-  <div class="content">
   <%= form_for @post do |f| %>
     <div class="input_options">
         <%= f.hidden_field :user_id, :value => current_user.id %>
         <%= f.label "Select a Destination"%>
-        <%= f.collection_select :destination_id, Destination.all, :id, :name, :include_blank => true %><br><br>
+        <%= f.collection_select :destination_id, Destination.all, :id, :name, :include_blank => true %>
 
         <%= f.fields_for :destination, @destination do |des|%>
           <%= des.label "Or Enter Destination Name" %>
-          <%= des.text_field :name %>
+          <%= des.text_field :name, class: "custom_field"%>
         <%end%>
-        <%= f.label "Type of Trip"%>
+        <br></br>
 
+        <label>Type of Trip</label>
+          <br>
         <select id="vacationType" name="post[vacation_type]">
           <option value=""></option>
           <option value="Beaches">Beach</option>
@@ -24,11 +26,15 @@
           <option value="Wildlife and Safari">Family</option>
           <option value="Wildlife and Safari">Cruise</option>
         </select>
+        <br></br>
 
-
-        Post Title: <%=f.text_field :title %>
+        <label>Title</label>
         <br>
-        Total Cost of Trip<%= f.text_field :total_cost %>
+        <%=f.text_field :title, class: "custom_field"%>
+        <br><br>
+        <label>Cost Of Trip</label>
+        <br>
+        <%= f.text_field :total_cost, class: "custom_field" %>
         <br></br>
         Please Rate the Following from 1-5
         <br>
@@ -40,13 +46,16 @@
         <br>
         How amazing was the food? <%=f.radio_button :diet, "1"%> 1 <%=f.radio_button :diet, 2%> 2 <%=f.radio_button :diet, 3%> 3 <%=f.radio_button :diet, 4%> 4 <%=f.radio_button :diet, 5%> 5
         <br></br>
+
+        <label>Content</label>
+        <br>
+        <%=f.text_area :content %>
+        <br></br>
+        <%= f.file_field :avatar %>
+        <br></br>
+        <%=f.submit class: "ui button"%>
+      <%end%>
     </div>
-    <h3>Share Your Experience</h3>
-    <%=f.text_area :content %>
-    <%= f.file_field :avatar %>
-    <br></br>
-    <%=f.submit%>
-  <%end%>
   </div>
 
   <div class="error">

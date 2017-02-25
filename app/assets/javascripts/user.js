@@ -98,19 +98,3 @@ function makeDestinationCall(){
     }
   })
 }
-
-
-// function generateForm(){
-//   $.ajax({
-//     url: '/posts/new',
-//     method: "GET",
-//     dataType: "text",
-//     success: function(data){
-//       debugger;
-//       $('#model').hide()
-//       $('#model').html(`<div class="header">Share an Experience</div>` + data.split(`<input id="hidden" style="display: none;">`)[1])
-//       $('.ui.modal').modal('show')
-//       $(".error").hide()
-//     }
-//   })
-// }

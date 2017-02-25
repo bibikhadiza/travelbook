@@ -11,7 +11,7 @@
   <%end%>
 
   <%if current_user.id == @post.user_id %>
-    <a class="update_post" id='<%=@post.id%>'>Update Post</a>
+    <a class="update_post" id='<%=@post.id%>' href="/posts/<%=@post.id%>/edit">Update Post</a>
   <%end%>
 
   <% if @post.user_id != current_user.id %>
