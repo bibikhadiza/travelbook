@@ -407,11 +407,30 @@ span{
   border-radius: 4px;
 }
 
-.ui.button {
+input.ui.button {
   background: white;
   border: 1px solid rgba(212, 212, 213, 0.81);
+  margin: 25px;
 }
 
 select {
   background-color: white;
+}
+
+.header{
+  text-align: center;
+}
+
+.form_content {
+  text-align: center;
+  position: relative;
+  margin-top: 20px;
+}
+
+.form_content textarea {
+  width: 80%;
+  height: 340px;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
 }

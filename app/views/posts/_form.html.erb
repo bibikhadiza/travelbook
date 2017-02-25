@@ -1,26 +1,18 @@
 <div class="ui modal">
   <div class="header">Share an Experience</div>
-  <input id="hidden" style="display: none;">
-    <div class="content">
-      <% if post.id %>
-      <% submit = "Update Post" %>
-      <%else%>
-      <% submit = "Create Post"%>
-      <%end%>
-
-
+    <div class="form_content">
     <%= form_for post do |f| %>
-    <div class="input_options">
-        <%= f.hidden_field :user_id, :value => current_user.id %>
-        <%= f.label "Select a Destination"%>
-        <%= f.collection_select :destination_id, Destination.all, :id, :name, :include_blank => true %><br><br>
+       <%= f.hidden_field :user_id, :value => current_user.id %>
+       <%= f.label "Select a Destination"%>
+       <%= f.collection_select :destination_id, Destination.all, :id, :name, :include_blank => true %>
 
-        <%= f.fields_for :destination, post.build_destination do |des|%>
-          <%= des.label "Or Enter Destination Name" %>
-          <%= des.text_field :name %>
-        <%end%>
-        <%= f.label "Type of Trip"%>
-
+       <%= f.fields_for :destination, post.build_destination do |des|%>
+         <%= des.label "Or Enter Destination Name" %>
+         <%= des.text_field :name, class: "custom_field" %>
+       <%end%>
+       <br></br>
+       <label>Type of Trip</label>
+       <br>
         <select id="vacationType" name="post[vacation_type]">
           <option value=""></option>
           <option value="Beaches">Beach</option>
@@ -31,14 +23,16 @@
           <option value="Wildlife and Safari">Family</option>
           <option value="Wildlife and Safari">Cruise</option>
         </select>
-
-
-        Post Title: <%=f.text_field :title %>
-        <br>
-        Total Cost of Trip<%= f.text_field :total_cost %>
-        <br></br>
-        Please Rate the Following from 1-5
-        <br>
+      <br></br>
+      <label>Title</label>
+       <%=f.text_field :title, class: "custom_field" %>
+       <br><br>
+       <label>Total Cost of Trip</label>
+       <%= f.text_field :total_cost, class: "custom_field" %>
+       <br></br>
+       Please Rate the Following from 1-5
+       <br>
+       <br>
         How was your flights? <%=f.radio_button :flight, 1%> 1 <%=f.radio_button :flight, 2%> 2 <%=f.radio_button :flight, 3%> 3 <%=f.radio_button :flight, 4%> 4 <%=f.radio_button :flight, 5%> 5
         <br>
         How great was the climate? <%=f.radio_button :climate, 1%> 1 <%=f.radio_button :climate, 2%> 2 <%=f.radio_button :climate, 3%> 3 <%=f.radio_button :climate, 4%> 4 <%=f.radio_button :climate, 5%> 5
@@ -47,18 +41,19 @@
         <br>
         How amazing was the food? <%=f.radio_button :diet, "1"%> 1 <%=f.radio_button :diet, 2%> 2 <%=f.radio_button :diet, 3%> 3 <%=f.radio_button :diet, 4%> 4 <%=f.radio_button :diet, 5%> 5
         <br></br>
-    </div>
-      <h3>Share Your Experience</h3
-      <%=f.text_area :content %>
-      <%= f.file_field :avatar %>
-      <br></br>
-      <%=f.submit submit, :id => "submit_form"%>
+
+        <label>content</label>
+        <br>
+       <%=f.text_area :content %>
+       <br><br>
+       <%= f.file_field :avatar %>
+        <br></br>
+        <%=f.submit class: "ui button", id: "submit_form"%>
     <%end%>
     </div>
 
-    <div class="error">
-      <ul class="list"></ul>
-    </div>
-   </div>
+  <div class="error">
+    <ul class="list"></ul>
+  </div>
 
-<input id="hidden" style="display: none;">
+</div>
