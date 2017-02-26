@@ -6,7 +6,6 @@ class Destination{
     this.posts = posts;
     this.pictures = pictures
   }
-
 }
 
 function displayDesImages(){
@@ -16,11 +15,13 @@ function displayDesImages(){
     method: 'GET',
     success: function(data){
       if( data.destination.posts.length < 3){
-        debugger;
+        // var first_convert = data.destination.pictures.replace(/['"]+/g, '')
+        // var second_convert = first_convert.replace(/[[]+/g, "")
+        // var third_convert = second_convert.replace(/]/g, "")
         data.destination.pictures.forEach((p, i) => {
           if(i == 0){
             var result = `<img class="active" src=./../assets/${p.split("/")[9]} height="400" width="400">`} else {
-              var result = `<img src=./../assets/${p.split("/")[9]} height="400" width="400">`
+            var result = `<img src=./../assets/${p.split("/")[9]} height="400" width="400">`
           }
           $(".fade-group").append(result)
           $('.fade-group h2').html(data.destination.name)
@@ -43,7 +44,6 @@ function displayDesImages(){
         data.destination.posts.forEach((p) => {
           var post = new Post(p.avatar, p.car_rental, p.climate, p.content, p.diet, p.flight, p.id, p.title, p.total_cost, p.destination, p.user, p.pins, p.created_at)
           $(".show_cards").append(post.postCards())
-
         })
       }
     }
