@@ -18,14 +18,14 @@ class Post{
 // }
 
   appendImage(){
-    var error;
+    var action;
     if(document.body.id == this.user.id){
-      error = `<a href="/posts/${this.id}/edit"><button id=edit>Edit</button></a>`
+      action = `<a href="/posts/${this.id}/edit"><button id=edit>Edit Post</button></a>`
     }else{
-      error = null
+      action = `<a href="/posts/${this.id}"><button id=edit>Read More</button></a>`
     }
     var str = this.content
-    if(str.length > 200) str = str.substring(0,200) + "...." + `<a href="/posts/${this.id}">Read More</a>`
+    if(str.length > 200) str = str.substring(0,200) + "...."
     return `<div class='post'>
       <a href='/posts/${this.id}'>
         <div class='image' style='background-image: url(${this.avatar.url})'>
@@ -40,7 +40,7 @@ class Post{
           <h1>${this.title}</h1>
           <p>${str}</p>
           <div class='meta'>`
-            + error +
+            + action +
         `</div>
       </a>
     </div>`

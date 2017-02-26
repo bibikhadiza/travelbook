@@ -16,7 +16,8 @@
 
   <% if @post.user_id != current_user.id %>
     <% if !@pin %>
-      <a href="/posts/<%=@post.id%>/pins" class="pin_it">Pin</a>
+      <!-- <a href="/posts/<%=@post.id%>/pins" class="pin_it">Pin</a> -->
+      <%=link_to 'Pin', user_post_pins_path(@post), {:class => 'pin_it',:method => :post}%>
     <%end%>
   <%end%>
 </div>

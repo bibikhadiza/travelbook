@@ -14,14 +14,19 @@ var id;
 
 $(document).on('turbolinks:load', function(){
   makeCall();
-  $('#my-pins').on('click', function(){
-    debugger;
-    $('.small.modal').modal('show');
-  })
+  // $('#my-pins').on('click', function(){
+  //   $('.ui.basic.modal').modal('show');
+  // })
+
+
   $('#nested').on('click', function(event){
     $('.ui.modal').modal('show')
     $(".error").hide()
   })
+
+  // $('.pin_it').on('click', function(){
+  //   makePinAjaxCall()
+  // })
 
   if($(".all-posts").length){
     allBlogs()

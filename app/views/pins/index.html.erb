@@ -1,17 +1,33 @@
-<h2>Pinned Destinations I Want to Visit</h2>
-<div class="my_activepins"></div>
-<h3></h3>
+<%= render partial: "posts/form", locals: {post: Post.new, destination: Destination.new}%>
 
-
-<h2>Pinned Destinations I have Visited</h2>
-<div class="my_inactivepins"></div>
-
-
-
-<div class='small modal'>
-  <div class="all_pins">
-    <ul class="pinned_pins">
-
-    </ul>
+<% if @active_pins.length > 0 %>
+  <h2 class="pin_title">Pinned Destinations</h2>
+  <div class="ui middle aligned divided list">
+    <% @active_pins.each do |pin|%>
+      <div class="item">
+        <div class="right floated content">
+          <a href="/pins/<%=pin.id%>/edit"><div class="ui button">Visited</div></a>
+        </div>
+      <div class="pin_post_content">
+      <%= pin.post.title %>
+      </div>
+    </div>
+   <%end%>
   </div>
-</div>
+<%end%>
+
+
+<% if @inactive_pins.length > 0%>
+  <h2 class="pin_title">Visited Destinations</h2>
+  <div class="ui middle aligned divided list">
+    <% @inactive_pins.each do |pin|%>
+      <div class="item">
+        <div class="right floated content">
+          <a href="/posts/<%=pin.post.id%>"><div class="ui button">Read Post</div></a>
+        </div>
+      <div class="pin_post_content">
+        <%= pin.post.title %>
+      </div>
+      <%end%>
+  </div>
+<%end%>

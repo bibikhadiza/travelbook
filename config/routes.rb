@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
 
   get "/users/:id/pins" => "pins#index", as: "user_pins"
+  post "/posts/:post_id/pins" => "pins#create", as: "user_post_pins"
 
 
 
