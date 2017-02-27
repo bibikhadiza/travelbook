@@ -492,3 +492,69 @@ button#edit{
   display: block;
   text-shadow: 2px 2px rgba(0, 0, 0, 0.38);
 }
+
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.user.icon {
+    padding-top: 15px;
+    position: relative;
+    display: block;
+    margin-bottom: 10px;
+    overflow: hidden;
+    padding-right: 0!important;
+    vertical-align: middle;
+    z-index: 1;
+    margin: 0 auto;
+}
+
+i.icon.user {
+  font-size: 50px;
+}
+
+
+
+.login-box{
+    position: relative;
+    margin: auto;
+    top: 100px;
+    width: 200px;
+    height: auto;
+    border-radius: 0.5em;
+    overflow: hidden;
+}
+
+.part{
+  position: relative;
+  margin: 0 auto;
+  top: 170px;
+  width: 200px;
+  height: auto;
+  border-radius: 0.5em;
+  width: 350px;
+  border-radius: 0.5em;
+  overflow: hidden;
+
+  background-color: white;
+
+  -webkit-box-shadow: 0 3px 10px 5px rgba(0,0,0,0.3);
+  -moz-box-shadow: 0 3px 10px 5px rgba(0,0,0,0.3);
+  -o-box-shadow: 0 3px 10px 5px rgba(0,0,0,0.3);
+  box-shadow: 0 3px 10px 5px rgba(0,0,0,0.3);
+  text-align: center;
+  // color: white;
+}
+
+.checking {
+  background-color: black;
+  background-size: cover;
+}

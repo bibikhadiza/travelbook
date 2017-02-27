@@ -14,21 +14,12 @@ var id;
 
 $(document).on('turbolinks:load', function(){
   makeCall();
-
-  // $('.nav_selection').on('click', function(e){
-  //   debugger;
-  //   var ins = $(e.target).text()
-  //   makePostTypeCall(ins)
-  // })
+  $(".rating").rating();
 
   $('#nested').on('click', function(event){
     $('.ui.modal').modal('show')
     $(".error").hide()
   })
-
-  // $('.pin_it').on('click', function(){
-  //   makePinAjaxCall()
-  // })
 
   if($(".all-posts").length){
     allBlogs()
@@ -79,6 +70,7 @@ $(document).on('turbolinks:load', function(){
 });
 
 function makeCall(){
+  $(".blog-posts").html("")
   if($(".blog-posts").length){
     id = $('body').attr('id')
     $.ajax({

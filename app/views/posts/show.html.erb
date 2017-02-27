@@ -3,6 +3,16 @@
 <div class="post_show">
   <h1><%=@post.title%></h1>
   <span><%=@post.destination.name%></span>
+      <br></br>
+    <div class="ratings">
+      Car Rental <div class="ui star rating" data-rating='<%=@post.car_rental%>'>hi</div>
+      <br>
+      Flight <div class="ui star rating" data-rating='<%=@post.flight%>'></div>
+      <br>
+      Diet <div class="ui star rating" data-rating='<%=@post.diet%>'></div>
+      <br>
+      Climate <div class="ui star rating" data-rating='<%=@post.climate%>'></div>
+    </div>
   <div class="showpage_image" style="background-image: url(<%=@post.avatar%>)"></div>
 
   <% p = @post.content.split("\n")%>

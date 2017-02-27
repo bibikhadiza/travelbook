@@ -31,9 +31,9 @@ class Post{
         <div class='image' style='background-image: url(${this.avatar.url})'>
           <div class='time'>
             <div class='date'>
-              2
+
             </div>
-            <div class='month'>MAR</div>
+            <div class='month'></div>
           </div>
         </div>
         <div class='content'>
@@ -119,7 +119,7 @@ function makePostTypeCall(ins){
     method: "get",
     success: function(data){
       if(data.length > 0){
-        
+
       }
     }
   })
