@@ -56,6 +56,25 @@ class PostsController < ApplicationController
     end
   end
 
+  def type
+    @title = params[:type_of]
+    if params[:type_of] === "Wildlife and Safari"
+      @pic = "tanzania-safari-tours-1400x575.jpg"
+    elsif params[:type_of] === "Honeymoon and Romantic"
+      @pic = "324636-istock-maldives-honeymoon.jpg"
+    elsif params[:type_of] === "Family"
+      @pic = "9c31bf_92c2f1bc4b884646b4f624a1a1481f8e.jpg_srz_1799_1196_85_22_0.50_1.20_0.jpg"
+    elsif params[:type_of] === "Rainforest and Jungles"
+      @pic = "villa-blanca-cloud-forest-costa-rica-zipline-DSC01931-ret-small2.jpg"
+    elsif params[:type_of] === "Beaches"
+      @pic = "D227-hero-fiji-yasawa-island-private-beach-2000x837.jpg"
+    elsif params[:type_of] === "Road Trip"
+      @pic = "iStock_000038250840Large_0.jpg"
+    end
+    @posts = Post.inspiration_posts(params[:type_of])
+    render :inspiration
+  end
+
 
   private
 

@@ -111,3 +111,16 @@ function allBlogs(){
     }
   })
 }
+
+function makePostTypeCall(ins){
+  debugger;
+  $.ajax({
+    url: `/posts/${ins}/inspiration.json`,
+    method: "get",
+    success: function(data){
+      if(data.length > 0){
+        
+      }
+    }
+  })
+}

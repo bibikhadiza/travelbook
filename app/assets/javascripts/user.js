@@ -14,10 +14,12 @@ var id;
 
 $(document).on('turbolinks:load', function(){
   makeCall();
-  // $('#my-pins').on('click', function(){
-  //   $('.ui.basic.modal').modal('show');
-  // })
 
+  // $('.nav_selection').on('click', function(e){
+  //   debugger;
+  //   var ins = $(e.target).text()
+  //   makePostTypeCall(ins)
+  // })
 
   $('#nested').on('click', function(event){
     $('.ui.modal').modal('show')
