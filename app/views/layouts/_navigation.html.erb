@@ -1,0 +1,39 @@
+<% if !user_signed_in? %>
+<div class="login-box">
+    <a href="/users/sign_in"><i class="user icon"></i></a>
+</div>
+<%end%>
+
+<%if user_signed_in? %>
+<div id="MenuHolder">
+  <nav>
+    <ul>
+      <li><a href="/users/<%=current_user.id%>">Home</a></li>
+      <li><a href="/posts" id="blogs">Blogs</a></li>
+      <li><a>Inspiration</a>
+        <ul class="nav_selection">
+          <li><%=link_to "Wildlife and Safari", post_type_path("Wildlife and Safari")%></li>
+          <li><%=link_to "Honeymoon and Romantic", post_type_path("Honeymoon and Romantic")%></li>
+          <li><%=link_to "Rainforest and Jungles", post_type_path("Rainforest and Jungles")%></li>
+          <li><%=link_to "Beaches", post_type_path("Beaches")%></li>
+          <li><%=link_to "Road Trip", post_type_path("Road Trip")%></li>
+          <li><%=link_to "Family", post_type_path("Family")%></li>
+        </ul>
+      </li>
+     <li><a id="nested">Publish</a></li>
+      <li><a id="my-pins" href="/users/<%=current_user.id%>/pins">Pins</a></li>
+    </ul>
+  </nav>
+  <div class="ui search">
+    <div class="ui icon input">
+      <input class="prompt" type="text" placeholder="Search Destination..." onFocus=makeDestinationCall()>
+      <i class="search icon"></i>
+    </div>
+    <div class="results"></div>
+  </div>
+    <div id="log_Out">
+      <%= link_to "Log Out", destroy_user_session_path, method: :delete, class: "ui item"%>
+    </div>
+</div>
+
+<%end%>

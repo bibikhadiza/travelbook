@@ -1,0 +1,33 @@
+<%= render partial: "posts/form", locals: {post: Post.new, destination: Destination.new}%>
+
+<div class="post_show">
+  <h1><%=@post.title%></h1>
+  <span><%=@post.destination.name%></span>
+      <br></br>
+    <div class="ratings">
+      Car Rental <div class="ui star rating" data-rating='<%=@post.car_rental%>'>hi</div>
+      <br>
+      Flight <div class="ui star rating" data-rating='<%=@post.flight%>'></div>
+      <br>
+      Diet <div class="ui star rating" data-rating='<%=@post.diet%>'></div>
+      <br>
+      Climate <div class="ui star rating" data-rating='<%=@post.climate%>'></div>
+    </div>
+  <div class="showpage_image" style="background-image: url(<%=@post.avatar%>)"></div>
+
+  <% p = @post.content.split("\n")%>
+  <% p.each do |e| %>
+    <p><%=e%></p>
+  <%end%>
+
+  <%if current_user.id == @post.user_id %>
+    <a class="update_post" id='<%=@post.id%>' href="/posts/<%=@post.id%>/edit">Update Post</a>
+  <%end%>
+
+  <% if @post.user_id != current_user.id %>
+    <% if !@pin %>
+      <!-- <a href="/posts/<%=@post.id%>/pins" class="pin_it">Pin</a> -->
+      <%=link_to 'Pin', user_post_pins_path(@post), {:class => 'pin_it',:method => :post}%>
+    <%end%>
+  <%end%>
+</div>

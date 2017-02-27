@@ -1,0 +1,18 @@
+<%= render partial: "posts/form", locals: {post: Post.new, destination: Destination.new}%>
+<div class="inspiration_page">
+<div class="inspiration_image" style="background-image: url(<%= asset_path @pic %>)">
+  <h2 class="inspiration_title"><%=@title%></h2>
+  </div>
+  <h2 class="show-page-title">Plan Your Next Trip</h2>
+
+
+<% if @posts.length > 0 %>
+<div class="show_cards">
+  <%@posts.each do |p| %>
+  <% date = p.created_at.strftime("%d %b. %Y") %>
+    <div class="img" style="background-image: url(<%=p.avatar.url%>)"><a   href="/posts/<%=p.id%>"><p class="card_date"><%=date%></p><h3 class="card_title1"><%=p.title%></h3></a>
+    </div>
+  <%end%>
+</div>
+<%end %>
+</div>

@@ -1,0 +1,13 @@
+<div class="heroSlideShow" id="<%=@des.id %>">
+  <div class="fade-group">
+    <h2></h2>
+  </div>
+</div>
+
+<div class="segment"></div>
+
+<h2 class="show-page-title">Experiences In <%= @des.name %></h2>
+<%= render partial: "posts/form", locals: {post: Post.new, destination: Destination.new}%>
+
+<div class="show_cards">
+</div>

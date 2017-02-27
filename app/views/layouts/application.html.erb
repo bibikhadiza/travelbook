@@ -2,13 +2,22 @@
 <html>
   <head>
     <title>Travelbook</title>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.css"/>
+    <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
-
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body id="<%=current_user.id if current_user%>">
+    <div id="page_wrap1">
+    <%= render 'layouts/navigation' %>
     <%= yield %>
+
+    <!-- <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
+    <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
+    <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %> -->
+      <!-- <div id="footer">Footer will always be at the bottom</div> -->
+      <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.6/semantic.min.js"></script>
+  </div>
   </body>
 </html>
