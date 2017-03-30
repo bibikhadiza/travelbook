@@ -1,5 +1,4 @@
 class User{
-
   constructor(email, id, posts, pins){
     this.name = email;
     this.id = id;
@@ -10,7 +9,6 @@ class User{
 
 var result;
 var id;
-
 
 $(document).on('turbolinks:load', function(){
   makeCall();
@@ -36,6 +34,10 @@ $(document).on('turbolinks:load', function(){
       "background-image":  "url(../././assets/428242.jpg)",
       'background-size': 'cover'
     })
+  }
+
+  if($(".devise_component").length){
+    $('.root_page_content').html(" ")
   }
 
   if($(".heroSlideShow").length){
