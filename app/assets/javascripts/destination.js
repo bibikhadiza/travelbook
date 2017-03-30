@@ -15,9 +15,6 @@ function displayDesImages(){
     method: 'GET',
     success: function(data){
       if( data.destination.posts.length < 3){
-        // var first_convert = data.destination.pictures.replace(/['"]+/g, '')
-        // var second_convert = first_convert.replace(/[[]+/g, "")
-        // var third_convert = second_convert.replace(/]/g, "")
         data.destination.pictures.forEach((p, i) => {
           if(i == 0){
             var result = `<img class="active" src=./../assets/${p.split("/")[9]} height="400" width="400">`} else {

@@ -31,6 +31,12 @@ $(document).on('turbolinks:load', function(){
     })
   });
 
+  if($(".devise_component").length || $(".login-box").length){
+    $("body").css({
+      "background-image":  "url(../././assets/428242.jpg)",
+      'background-size': 'cover'
+    })
+  }
 
   if($(".heroSlideShow").length){
     displayDesImages()

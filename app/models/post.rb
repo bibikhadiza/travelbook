@@ -7,7 +7,7 @@ class Post < ActiveRecord::Base
   validates :avatar, presence: true, allow_blank: false
   validate :must_have_a_destination
   scope :all_posts, -> {Post.order(id: :desc)}
-  scope :inspiration_posts, -> (type) { where(vacation_type: type) }
+  scope :inspiration_posts, -> (type) {where(vacation_type: type) }
 
   def must_have_a_destination
     if !self.destination_id
