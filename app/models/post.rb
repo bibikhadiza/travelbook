@@ -2,7 +2,7 @@ class Post < ActiveRecord::Base
   mount_uploader :avatar, AvatarUploader
   belongs_to :user
   belongs_to :destination
-  has_many :pins
+  has_many :pins, dependent: :destroy
   validates :title, :flight, :total_cost, :diet, :climate, :content, :car_rental, presence: true
   validates :avatar, presence: true, allow_blank: false
   validate :must_have_a_destination

@@ -4,6 +4,7 @@
   <h2 class="pin_title">Pinned Destinations</h2>
   <div class="ui middle aligned divided list">
     <% @active_pins.each do |pin|%>
+    <%binding.pry%>
       <div class="item">
         <div class="right floated content">
           <a href="/pins/<%=pin.id%>/edit"><div class="ui button">Visited</div></a>
@@ -14,6 +15,11 @@
     </div>
    <%end%>
   </div>
+<%end%>
+
+<%if @active_pins.length == 0 && @inactive_pins.length == 0 %>
+<div class="hi">
+</div>
 <%end%>
 
 

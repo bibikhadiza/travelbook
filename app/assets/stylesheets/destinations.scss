@@ -214,3 +214,58 @@ div.login-box button:hover {
 .quote {
   margin-top: 5%;
 }
+
+
+html {
+  position: relative;
+  min-height: 100% !important;
+}
+
+body {
+  margin: 0 !important; /* bottom = footer height */
+}
+
+#footer {
+  border-top: 1px solid;
+  color: rgba(212, 212, 213, 0.81);
+  font-weight: 600;
+  transition: color .4s;
+  bottom: 0;
+  height: 130px;
+  width: 87%;
+  height: 150px;
+  margin: 0 auto;
+  overflow:hidden;
+  margin-top: 500px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+#footer ul li{
+  display: inline;
+  padding-right: 40px;
+  color: #959aa0;
+  font-weight: 600;
+}
+
+#footer ul i{
+  padding-right: 20px;
+  color: #959aa0;
+  width: 30px !important;
+  height: 50px !important;
+}
+
+.facebook.square.icon {
+  margin-left: 200px;
+}
+
+#footer p{
+  clear: both;
+  color: #bfc2c6;
+  font-size: 1rem;
+  margin-top: 1px;
+}
+
+.hi {
+  height: 500px;
+}
