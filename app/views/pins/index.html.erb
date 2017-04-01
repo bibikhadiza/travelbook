@@ -3,8 +3,7 @@
 <% if @active_pins.length > 0 %>
   <h2 class="pin_title">Pinned Destinations</h2>
   <div class="ui middle aligned divided list">
-    <% @active_pins.each do |pin|%>
-    <%binding.pry%>
+    <% @active_pins.each do |pin| %>
       <div class="item">
         <div class="right floated content">
           <a href="/pins/<%=pin.id%>/edit"><div class="ui button">Visited</div></a>
@@ -18,12 +17,11 @@
 <%end%>
 
 <%if @active_pins.length == 0 && @inactive_pins.length == 0 %>
-<div class="hi">
-</div>
+  <div class="page_length">
+  </div>
 <%end%>
 
-
-<% if @inactive_pins.length > 0%>
+<% if @inactive_pins.length > 0 %>
   <h2 class="pin_title">Visited Destinations</h2>
   <div class="ui middle aligned divided list">
     <% @inactive_pins.each do |pin|%>
