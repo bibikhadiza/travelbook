@@ -29,6 +29,9 @@ Bundler.require(*Rails.groups)
 #     @app.call(env)
 #   end
 # end
+config.assets.initialize_on_precompile = false
+RAILS_ENV=production bundle exec rake assets:precompile
+
 
 module Travelbook
   class Application < Rails::Application
