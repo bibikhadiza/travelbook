@@ -30,7 +30,7 @@ Bundler.require(*Rails.groups)
 #   end
 # end
 # config.assets.initialize_on_precompile = false
-# RAILS_ENV=production bundle exec rake assets:precompile
+RAILS_ENV=production bundle exec rake assets:precompile
 
 
 module Travelbook

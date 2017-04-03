@@ -1,5 +1,4 @@
 class Destination{
-
   constructor(name, id, posts, pictures){
     this.name = name;
     this.id = id;
@@ -11,14 +10,14 @@ class Destination{
 function displayDesImages(){
   var id = $('.heroSlideShow').attr('id')
   $.ajax({
-    url: `/destinations/${id}.json`,
+    url: "/destinations/" + id + ".json",
     method: 'GET',
     success: function(data){
       if( data.destination.posts.length < 3){
         data.destination.pictures.forEach((p, i) => {
           if(i == 0){
-            var result = `<img class="active" src=./../assets/${p.split("/")[9]} height="400" width="400">`} else {
-            var result = `<img src=./../assets/${p.split("/")[9]} height="400" width="400">`
+            var result = "<img class=active src=./../assets/" + p.split("/")[9] + " " + "height=400 width=400>"} else {
+            var result = "<img src=./../assets/" + p.split("/")[9] + " " + "height=400 width=400>"
           }
           $(".fade-group").append(result)
           $('.fade-group h2').html(data.destination.name)
@@ -27,8 +26,8 @@ function displayDesImages(){
         } else {
           data.destination.posts.forEach((p, i ) => {
             if(i == 0){
-              var result = `<img class="active" src=./../${p.avatar.url} height="400" width="400">`} else {
-                var result = `<img src=./../${p.avatar.url} height="400" width="400">`
+              var result = "<img class=active src=./../" + p.avatar.url + " " + "height=400 width=400>"} else {
+                var result = "<img src=./../" + p.avatar.url + " " + "height=400 width=400>"
             }
           $(".fade-group").append(result)
           $('.fade-group h2').html(data.destination.name)

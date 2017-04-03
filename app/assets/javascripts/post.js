@@ -17,33 +17,17 @@ class Post{
   }
 // }
 
-  appendImage(){
+appendImage(){
     var action;
     if(document.body.id == this.user.id){
-      action = `<a href="/posts/${this.id}/edit"><button id=edit>Edit Post</button></a>`
+      action = "<a href=/posts/" + this.id + "/edit><button id=edit>Edit Post</button></a>"
     }else{
-      action = `<a href="/posts/${this.id}"><button id=edit>Read More</button></a>`
+      action = "<a href=/posts/" + this.id + "><button id=edit>Read More</button></a>"
     }
     var str = this.content
     if(str.length > 200) str = str.substring(0,200) + "...."
-    return `<div class='post'>
-      <a href='/posts/${this.id}'>
-        <div class='image' style='background-image: url(${this.avatar.url})'>
-          <div class='time'>
-            <div class='date'>
-
-            </div>
-            <div class='month'></div>
-          </div>
-        </div>
-        <div class='content'>
-          <h1>${this.title}</h1>
-          <p>${str}</p>
-          <div class='meta'>`
-            + action +
-        `</div>
-      </a>
-    </div>`
+      var pic = this.avatar.url.split("/")
+      return "<div class=post>" +"<a href=/posts/" + this.id + "><div class=image id=" + this.id + " style='background-image: url(" + this.avatar.url + "')><div class=time><div class=date></div><div class=month></div></div></div><div class=content><h1>" + this.title + "</h1><p>" + str + "</p><div class=meta>" + action +"</div></a></div>"
   }
 
   postCards(){

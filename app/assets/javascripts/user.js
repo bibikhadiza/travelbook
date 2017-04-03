@@ -69,7 +69,7 @@ $(document).on('turbolinks:load', function(){
         $('.list').html("")
         $(".error").show()
         err.responseJSON.forEach((e) => {
-          var error = `<li>${e}</li>`
+          var error = "<li>"+ e +"</li>"
           document.getElementById("submit_form").disabled = false;
           $('.list').append(error)
         })
@@ -83,7 +83,7 @@ function makeCall(){
   if($(".blog-posts").length){
     id = $('body').attr('id')
     $.ajax({
-      url: `/users/${id}.json`,
+      url: "/users/"+ id + ".json",
       method: 'GET',
       success: function(data){
           data.posts.forEach((post) => {
@@ -101,7 +101,7 @@ function makeDestinationCall(){
     method: "GET",
     success: function(data){
     content = data.map(function(dest) {
-      return {title: dest.name, url: `/destinations/${dest.id}`}
+      return {title: dest.name, url: "/destinations/" + dest.id}
     })
     }
   })

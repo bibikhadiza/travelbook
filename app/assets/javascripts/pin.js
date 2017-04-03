@@ -8,16 +8,15 @@ class Pin{
 
 
   appendPins(){
-    return `<li>${this.post.title}<br><a href=/posts/${this.post.id}><img src=${this.post.avatar.url} style="max-height: 200px; max-width: 200px;"></a><button type="button" onclick=locationsVisited(${this.id});>Visited Location</button></li>`
+    return "<li>" + this.post.title + "<br><a href=/posts/" + this.post.id + ">" + "<img src=" + this.post.avatar.url + " " + "style=max-height: 200px; max-width: 200px;"> + "</a>" + "<button type=button  onclick=locationsVisited(" + this.id+ ");>Visited Location</button></li>"
   }
 
 }
 
 function makePinAjaxCall(event){
-  debugger;
   var id = $('body').attr('id')
   $.ajax({
-    url: `/users/${id}/pins`,
+    url: "/users/"+ id + "/pins",
     dataType: 'json',
     method: 'GET',
     success: function(data){
@@ -29,7 +28,6 @@ function makePinAjaxCall(event){
 
 
 function loadPins(data){
-  debugger;
   $('.all_pins').html(" ")
   if(data.length === 0){
     $('.all_pins').html("You do not have any Pins")
@@ -49,7 +47,7 @@ function loadPins(data){
 
 function locationsVisited(id){
   $.ajax({
-    url: `/pins/${id}`,
+    url: "/pins/" + id,
     dataType: 'json',
     method: 'PATCH'
   }).done(function(){
