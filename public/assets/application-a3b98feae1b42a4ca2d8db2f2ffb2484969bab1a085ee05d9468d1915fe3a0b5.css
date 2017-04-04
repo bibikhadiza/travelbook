@@ -1,0 +1,947 @@
+/* line 5, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+.fade-group {
+  margin: 0 auto;
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+/* line 12, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+.fade-group img {
+  position: absolute;
+  z-index: 1;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0.89;
+}
+
+/* line 21, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+.fade-group img.active {
+  z-index: 3;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  opacity: 0.89;
+}
+
+/* line 29, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+.fade-group h2 {
+  position: absolute;
+  top: 200px;
+  left: 0;
+  width: 100%;
+  z-index: 4;
+  font-size: 8rem;
+  text-align: center;
+  font-weight: 600;
+  line-height: .9;
+  margin: .67em 0;
+  font-weight: 600;
+  color: white;
+  display: block;
+}
+
+/* line 45, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+.segment {
+  position: relative;
+  top: 75px;
+  border-top: 1px solid;
+  margin-left: 5rem;
+  margin-right: 5rem;
+  display: block;
+  height: 0;
+  content: "";
+  box-sizing: content-box;
+  color: rgba(212, 212, 213, 0.81);
+}
+
+/* line 58, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+.show-page-title {
+  color: #3b444f;
+  font-size: 2.8rem;
+  font-weight: 100;
+  line-height: 1.3;
+  margin-bottom: 6rem;
+  margin-top: 80px;
+  padding-bottom: 1.5rem;
+  position: relative;
+  text-align: center;
+  font-family: Benton Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  top: 127px;
+}
+
+/* line 72, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+.show-page-title:after {
+  border-bottom: .2rem solid #dc221a;
+  bottom: 0;
+  content: "";
+  display: block;
+  left: 50%;
+  margin-left: -1.5rem;
+  position: absolute;
+  width: 3rem;
+}
+
+/* line 84, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+.show_cards {
+  margin-left: 72px;
+  vertical-align: center;
+  margin-top: 200px;
+}
+
+/* line 90, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+div.img {
+  margin: 12px;
+  border: 1px solid #ccc;
+  float: left;
+  width: 250px;
+  height: 380px;
+  background-size: none;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+}
+
+/* line 101, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+.card_date {
+  width: 250px;
+  height: 380px;
+  display: table-cell;
+  vertical-align: middle;
+  text-align: center;
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1.2rem;
+  font-style: italic;
+  line-height: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* line 117, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+.card_title1 {
+  color: #FFFFFF;
+  margin-top: -12rem;
+  text-align: center;
+  line-height: 1.35714;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  font-weight: 300;
+}
+
+/* line 127, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+div.img:hover {
+  border: 1px solid #777;
+}
+
+/* line 131, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+div.desc {
+  padding: 15px;
+  text-align: center;
+}
+
+/* line 137, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+div.login-box button {
+  position: relative;
+  width: 110px;
+  height: 110px;
+  box-shadow: 0 0 0 1px #fff;
+  text-align: center;
+  line-height: 136px;
+  border-radius: 100%;
+  text-decoration: none;
+  -webkit-transition: all 250ms;
+  transition: all 250ms;
+}
+
+/* line 150, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+div.login-box button:hover {
+  box-shadow: 0 0 0 2px #fff, 0 0 0 7px rgba(255, 255, 255, 0.45);
+  -webkit-transform: rotate(10deg);
+  transform: rotate(10deg);
+}
+
+/* line 156, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+.login-box a {
+  background-color: transparent;
+  background-repeat: no-repeat;
+  outline: none;
+  padding-left: 5%;
+  letter-spacing: 3px;
+  color: black;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* line 167, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+.login-box {
+  position: absolute !important;
+  margin-top: 260px !important;
+  left: 0px;
+  right: 0px;
+  width: 400px;
+  height: auto;
+  padding: 9px 10px;
+  opacity: 0.5;
+}
+
+/* line 178, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+.travel_quote {
+  position: absolute;
+  top: 150px;
+  left: 0px;
+  right: 0px;
+  padding: 0 20px;
+}
+
+/* line 186, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+.travel_quote h1 {
+  font-family: 'brandon-grotesque', sans-serif;
+  text-align: center;
+  font-size: 40px !important;
+  letter-spacing: 55px;
+  font-weight: 100px !important;
+  font-style: normal;
+  text-transform: uppercase;
+  vertical-align: baseline;
+  color: ghostwhite;
+  text-shadow: 2px 2px rgba(118, 118, 118, 0.12);
+  font: inherit;
+}
+
+/* line 200, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+.travel_quote h2 {
+  text-transform: uppercase;
+  margin-top: 1%;
+  letter-spacing: 5px;
+  position: relative;
+  text-align: center;
+  font-size: 1.5625rem;
+  font-family: 'brandon-grotesque', sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  color: rgba(240, 240, 240, 0.8);
+  text-shadow: 2px 2px rgba(118, 118, 118, 0.12);
+}
+
+/* line 214, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+.quote {
+  margin-top: 5%;
+}
+
+/* line 219, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+html {
+  position: relative;
+  min-height: 100% !important;
+}
+
+/* line 224, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+body {
+  margin: 0 !important;
+  /* bottom = footer height */
+}
+
+/* line 228, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+#footer {
+  border-top: 1px solid;
+  color: rgba(212, 212, 213, 0.81);
+  font-weight: 600;
+  transition: color .4s;
+  bottom: 0;
+  height: 130px;
+  width: 87%;
+  height: 150px;
+  margin: 0 auto;
+  overflow: hidden;
+  margin-top: 500px;
+  padding-top: 10px;
+  text-align: center;
+}
+
+/* line 244, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+#footer ul li {
+  display: inline;
+  padding-right: 40px;
+  color: #959aa0;
+  font-weight: 600;
+}
+
+/* line 251, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+#footer ul i {
+  padding-right: 20px;
+  color: #959aa0;
+  width: 30px !important;
+  height: 50px !important;
+}
+
+/* line 258, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+.facebook.square.icon {
+  margin-left: 200px;
+}
+
+/* line 262, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+#footer p {
+  clear: both;
+  color: #bfc2c6;
+  font-size: 1rem;
+  margin-top: 1px;
+}
+
+/* line 269, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/destinations.scss */
+.page_length {
+  height: 500px;
+}
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300,400,600,800|Merriweather:300);
+@import url(http://markmurray.co/codepen/customstyle.css);
+/* line 5, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.error {
+  width: auto;
+  height: auto;
+  background-color: #F0D1D1;
+  color: #944141;
+}
+
+/* line 13, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+#MenuHolder {
+  display: flex;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  background: white;
+  font-weight: 400;
+  border-bottom: 1px solid rgba(34, 36, 38, 0.15);
+  box-shadow: 0 1px 2px 0 rgba(34, 36, 38, 0.15);
+  border-radius: .28571429rem;
+  min-height: 2.85714286em;
+}
+
+/* line 24, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+nav ul {
+  margin: 0;
+  padding: 0;
+}
+
+/* line 29, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+nav ul li {
+  list-style-type: none;
+  float: left;
+  display: block;
+  width: 150px;
+  height: 60px;
+  text-align: center;
+  line-height: 55px;
+  font-size: 1rem;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+}
+
+/* line 41, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+nav ul li a {
+  text-decoration: none;
+  color: #333;
+}
+
+/* line 46, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+nav a {
+  display: block;
+}
+
+/* line 50, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+nav ul li:Hover {
+  border-bottom: 3px solid #333;
+}
+
+/* line 54, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+nav ul ul {
+  display: none;
+}
+
+/* line 58, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+nav ul li:Hover > ul {
+  position: relative;
+  display: block;
+  z-index: 6;
+}
+
+/* line 64, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+nav ul ul li {
+  width: 161.3px;
+  height: 60px;
+  line-height: 55px;
+  background-color: white;
+}
+
+/* line 71, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+div.ui.search {
+  margin-left: 100px;
+  margin-top: 6px;
+}
+
+/* line 76, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+#log_Out {
+  margin-left: 50px;
+  position: relative;
+  top: 18px;
+}
+
+/* line 82, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.sizing {
+  width: 800px;
+  margin: 0 auto;
+  z-index: -1;
+}
+
+/* line 88, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+p {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 400px;
+}
+
+/* line 97, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+*, *:before, *:after {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+/* line 103, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+a, a:visited {
+  display: block;
+  text-decoration: inherit;
+  color: inherit;
+}
+
+/* line 109, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+html body {
+  font-family: Benton Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  font-size: 100%;
+  background-color: rgba(0, 0, 0, 0.06);
+  align-items: center;
+  height: 100%;
+}
+
+/* line 118, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.container {
+  padding: 0.5em 1em 1em;
+  max-width: calc(900px + 1em);
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+/* line 124, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.container .blog-posts .featured {
+  width: 100% !important;
+  height: 250px !important;
+  margin: 0.5em 0 1em 0 !important;
+}
+
+/* line 129, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.container .blog-posts .featured .image {
+  height: 250px !important;
+}
+
+/* line 132, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.container .blog-posts .featured .content {
+  height: 250px !important;
+}
+
+/* line 135, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.container .blog-posts .row {
+  display: flex;
+}
+
+/* line 138, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.container .blog-posts .row .post:last-child {
+  margin-right: 0 !important;
+}
+
+/* line 141, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.container .blog-posts .post {
+  flex: 1;
+  overflow: hidden;
+  background: white;
+  height: 200px;
+  -moz-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+  -webkit-box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.2);
+  margin-right: 1em;
+  margin-bottom: 1em;
+}
+
+/* line 152, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.container .blog-posts .post:hover {
+  -moz-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 3px 2px rgba(0, 0, 0, 0.1);
+}
+
+/* line 157, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.container .blog-posts .post:hover .image {
+  opacity: 0.8;
+}
+
+/* line 160, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.container .blog-posts .post .image, .container .blog-posts .post .content {
+  display: inline-block;
+  position: relative;
+  -moz-transition: all 500ms ease;
+  -o-transition: all 500ms ease;
+  -webkit-transition: all 500ms ease;
+  transition: all 500ms ease;
+}
+
+/* line 168, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.container .blog-posts .post .image {
+  float: left;
+  width: 50%;
+  height: 200px;
+  background-size: cover;
+  background-position: center center;
+}
+
+/* line 175, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.container .blog-posts .post .image .time {
+  width: 50px;
+  text-align: center;
+  padding: 0.5em 0;
+  color: #444;
+}
+
+/* line 181, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.container .blog-posts .post .image .time .date {
+  font-weight: bolder;
+}
+
+/* line 184, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.container .blog-posts .post .image .time .month {
+  font-size: 0.7rem;
+}
+
+/* line 187, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.container .blog-posts .post .content {
+  padding: 0.5em 1em;
+  width: 50%;
+  -moz-box-shadow: -2px 0 2px -1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: -2px 0 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: -2px 0 2px -1px rgba(0, 0, 0, 0.1);
+  height: 200px;
+}
+
+/* line 195, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.container .blog-posts .post .content:before {
+  content: '';
+  position: absolute;
+  background: white;
+  width: 10px;
+  height: 10px;
+  top: 20%;
+  left: -5px;
+  -moz-transform: rotate(45deg);
+  -ms-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+  -moz-box-shadow: -1px 0 2px -1px rgba(0, 0, 0, 0.1);
+  -webkit-box-shadow: -1px 0 2px -1px rgba(0, 0, 0, 0.1);
+  box-shadow: -1px 0 2px -1px rgba(0, 0, 0, 0.1);
+}
+
+/* line 211, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.container .blog-posts .post .content h1 {
+  font-weight: 600;
+  line-height: 2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* line 218, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.container .blog-posts .post .content p {
+  font-weight: 300;
+  font-size: 0.7rem;
+  line-height: 1.5;
+  margin-bottom: 0.5em;
+  font-family: 'Merriweather', sans-serif;
+}
+
+/* line 225, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.container .blog-posts .post .content .meta .icon-comment {
+  font-size: 0.7em;
+  line-height: 2;
+  margin-top: auto;
+}
+
+/* line 231, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+[class^="icon-"]:before {
+  margin-right: 0.5em;
+  color: #3498db;
+}
+
+/* line 236, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+@media screen and (max-width: 840px) {
+  /* line 242, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+  .row {
+    display: block !important;
+  }
+
+  /* line 245, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+  .row .post {
+    width: 100%;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 600px) {
+  /* line 251, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+  .content {
+    width: 70% !important;
+  }
+
+  /* line 255, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+  .image {
+    width: 30% !important;
+  }
+
+  /* line 259, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+  h1 {
+    text-overflow: inherit;
+    white-space: normal;
+  }
+}
+/* clearfix */
+/* line 265, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.cf:before,
+.cf:after {
+  content: " ";
+  /* 1 */
+  display: table;
+  /* 2 */
+}
+
+/* line 273, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.cf:after {
+  clear: both;
+}
+
+/* line 277, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.check {
+  background-color: white;
+}
+
+/* line 281, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.post_show {
+  text-align: center;
+  margin-top: 100px;
+}
+
+/* line 286, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.post_show h1 {
+  line-height: 1.2;
+  font-size: 5.5rem;
+  letter-spacing: -.1rem;
+  font-weight: 600;
+  color: #2c3643;
+}
+
+/* line 294, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+span {
+  font-family: 'Miller Daily', 'Georgia', 'Times', 'Times New Roman', serif;
+  font-style: italic;
+  font-size: 16px;
+  letter-spacing: .4px;
+  line-height: 1.3125;
+  color: #297cbb;
+}
+
+/* line 303, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.showpage_image {
+  background-size: cover;
+  margin: 0 auto;
+  position: relative;
+  height: 350px;
+  width: 570px;
+  background-position: 50% 50%;
+  top: 80px;
+}
+
+/* line 313, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.post_show p {
+  color: #3b444f;
+  display: block;
+  position: relative;
+  margin: 0 auto;
+  top: 100px;
+  font-family: 'Miller Daily', 'Georgia', 'Times', 'Times New Roman', serif;
+  font-size: 1em;
+  line-height: 1.8;
+  font-size: 20px;
+  text-align: left;
+  margin-bottom: 1.4em;
+  margin-top: 1.4em;
+  width: 550px;
+}
+
+/* line 329, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.update_post {
+  border: 0.1rem solid;
+  border-radius: 1.7rem;
+  border-width: thin;
+  width: 150px;
+  line-height: 0;
+  padding: 1.7rem .2rem 1.5rem;
+  font-size: .9rem;
+  font-weight: 500;
+  color: #3b444f;
+  display: block;
+  border-color: rgba(59, 68, 79, 0.6);
+  position: relative;
+  top: 130px;
+  margin: 0 auto;
+}
+
+/* line 346, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.pin_it {
+  border: 0.1rem solid;
+  border-radius: 1.7rem;
+  border-width: thin;
+  width: 150px;
+  line-height: 0;
+  padding: 1.7rem .2rem 1.5rem;
+  font-size: .9rem;
+  font-weight: 500;
+  color: #3b444f;
+  display: block;
+  border-color: rgba(59, 68, 79, 0.6);
+  position: relative;
+  top: 130px;
+  margin: 0 auto;
+}
+
+/* line 363, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.form_title {
+  text-align: center;
+  color: #2c3643;
+  font-family: Lato,'Helvetica Neue',Arial,Helvetica,sans-serif;
+  font-size: 3rem;
+  position: relative;
+  margin-top: 5%;
+}
+
+/* line 372, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.input_options {
+  text-align: center;
+}
+
+/* line 376, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.edit {
+  border-radius: 0;
+  background-color: white;
+  padding: 20px;
+  width: 70%;
+  height: 60%;
+  margin: auto;
+  margin-top: 3%;
+  margin-bottom: 3%;
+  border: 1px solid rgba(212, 212, 213, 0.81);
+  border-radius: 6px;
+}
+
+/* line 389, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.custom_field {
+  width: 30%;
+  background-color: white;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* line 400, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.edit textarea {
+  width: 80%;
+  height: 340px;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* line 408, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+input.ui.button {
+  background: white;
+  border: 1px solid rgba(212, 212, 213, 0.81);
+  margin: 25px;
+}
+
+/* line 414, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+select {
+  background-color: white;
+}
+
+/* line 418, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.header {
+  text-align: center;
+}
+
+/* line 422, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.form_content {
+  text-align: center;
+  position: relative;
+  margin-top: 20px;
+}
+
+/* line 428, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.form_content textarea {
+  width: 80%;
+  height: 340px;
+  padding: 12px 20px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+/* line 436, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.all-posts {
+  position: relative;
+  margin-top: 5%;
+}
+
+/* line 441, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+button#edit {
+  position: relative;
+  margin-top: 15px;
+  margin-left: 40%;
+}
+
+/* line 447, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.ui.middle.aligned.divided.list {
+  margin-left: 20%;
+  margin-right: 20%;
+}
+
+/* line 452, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.pin_title {
+  color: #3b444f;
+  font-size: 2.8rem;
+  font-weight: 200;
+  line-height: 1.3;
+  position: relative;
+  text-align: center;
+  font-family: Benton Sans,Helvetica Neue,Helvetica,Arial,sans-serif;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+/* line 464, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.pin_post_content {
+  font-size: 1.4rem;
+}
+
+/* line 468, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.inspiration_image {
+  background-size: cover;
+  margin: 0 auto;
+  position: relative;
+  height: 617px;
+  width: 100%;
+  background-position: 50% 50%;
+}
+
+/* line 477, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.inspiration_title {
+  position: relative;
+  top: 200px;
+  left: 0;
+  width: 100%;
+  z-index: 4;
+  font-size: 8rem;
+  text-align: center;
+  font-weight: 600;
+  line-height: .9;
+  margin: .67em 0;
+  font-weight: 600;
+  color: white;
+  display: block;
+  text-shadow: 2px 2px rgba(0, 0, 0, 0.38);
+}
+
+/* line 494, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+html {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* line 506, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.user.icon {
+  padding-top: 15px;
+  position: relative;
+  display: block;
+  margin-bottom: 10px;
+  overflow: hidden;
+  padding-right: 0 !important;
+  vertical-align: middle;
+  z-index: 1;
+  margin: 0 auto;
+}
+
+/* line 518, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+i.icon.user {
+  font-size: 50px;
+}
+
+/* line 524, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.login-box {
+  position: relative;
+  margin: auto;
+  top: 100px;
+  width: 200px;
+  height: auto;
+  border-radius: 0.5em;
+  overflow: hidden;
+}
+
+/* line 534, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.devise_component {
+  position: relative;
+  margin: 0 auto;
+  top: 170px;
+  width: 200px;
+  height: auto;
+  border-radius: 0.5em;
+  width: 350px;
+  border-radius: 0.5em;
+  overflow: hidden;
+  background-color: white;
+  -webkit-box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.3);
+  -o-box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 10px 5px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+/* line 555, /Users/limabibikhadiza/Development/Projects/travelbook/app/assets/stylesheets/posts.scss */
+.checking {
+  background-color: black;
+  background-size: cover;
+}
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+
+
+ */
+
+ 
