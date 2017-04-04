@@ -15,6 +15,7 @@ function displayDesImages(){
     success: function(data){
       if( data.destination.posts.length < 3){
         data.destination.pictures.forEach((p, i) => {
+          debugger;
           if(i == 0){
             var result = "<img class=active src=./../assets/" + p.split("/")[9] + " " + "height=400 width=400>"} else {
             var result = "<img src=./../assets/" + p.split("/")[9] + " " + "height=400 width=400>"
@@ -25,6 +26,7 @@ function displayDesImages(){
         slideShow()
         } else {
           data.destination.posts.forEach((p, i ) => {
+            debugger;
             if(i == 0){
               var result = "<img class=active src=./../" + p.avatar.url + " " + "height=400 width=400>"} else {
                 var result = "<img src=./../" + p.avatar.url + " " + "height=400 width=400>"
