@@ -32,7 +32,7 @@ $(document).on('turbolinks:load', function(){
   if($(".devise_component").length || $(".login-box").length){
     $("#footer").remove()
     $("body").css({
-      "background":  "image-url(../././assets/428242.jpg)",
+      "background-image":  "url(../././assets/428242.jpg)",
       'background-size': 'cover'
     })
   }
