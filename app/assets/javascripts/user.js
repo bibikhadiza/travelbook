@@ -31,11 +31,17 @@ $(document).on('turbolinks:load', function(){
 
   if($(".devise_component").length || $(".login-box").length){
     $("#footer").remove()
-    $("body").css({
-      "background-image":  "url(../././assets/428242.jpg)",
-      'background-size': 'cover'
+    $(window).on('load', function(){
+      $("body").css({
+        "background-image":  "url(https://images2.alphacoders.com/467/467022.jpg)",
+        'background-size': 'cover'
+      })
+
+      var div = "<div class=root_page_content><div class=travel_quote><h1 class=>TravelBook</h1><div class=quote><h2 class>The world is a book, and those </h2><h2> who do not travel read</h2><h2>only a page</h2></div></div>"
+      $("body").append( div )
     })
   }
+
 
   if($(".devise_component").length){
     $('.root_page_content').html(" ")
