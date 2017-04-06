@@ -68,7 +68,7 @@ $(document).on('turbolinks:load', function(){
       error: function(err){
         $('.list').html("")
         $(".error").show()
-        err.responseJSON.forEach((e) => {
+        err.responseJSON.forEach(function(e){
           var error = "<li>"+ e +"</li>"
           document.getElementById("submit_form").disabled = false;
           $('.list').append(error)
@@ -86,7 +86,7 @@ function makeCall(){
       url: "/users/"+ id + ".json",
       method: 'GET',
       success: function(data){
-          data.posts.forEach((post) => {
+          data.posts.forEach(function(post){
           var userPost = new Post(post.avatar, post.car_rental, post.climate, post.content, post.diet, post.flight, post.id, post.title, post.total_cost, post.destination, post.user, post.pins)
            $(".blog-posts").append(userPost.appendImage())
         });

@@ -34,7 +34,7 @@ function loadPins(data){
     $('.small.modal').modal('show');
   }
 
-  data.forEach((pin) =>{
+  data.forEach(function(pin){
     var newPin = new Pin(pin.id, pin.user, pin.status, pin.post)
     var post = new Post(pin.post.avatar, pin.post.car_rental, pin.post.climate, pin.post.content, pin.post.diet, pin.post.flight, pin.post.id, pin.post.title, pin.post.total_cost);
     if(newPin.status === true){

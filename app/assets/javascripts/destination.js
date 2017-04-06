@@ -14,8 +14,7 @@ function displayDesImages(){
     method: 'GET',
     success: function(data){
       if( data.destination.posts.length < 3){
-        data.destination.pictures.forEach((p, i) => {
-          debugger;
+        data.destination.pictures.forEach(function(p, i){
           if(i == 0){
             var result = "<img class=active src=./../assets/" + p.split("/")[9] + " " + "height=400 width=400>"} else {
             var result = "<img src=./../assets/" + p.split("/")[9] + " " + "height=400 width=400>"
@@ -25,8 +24,7 @@ function displayDesImages(){
         })
         slideShow()
         } else {
-          data.destination.posts.forEach((p, i ) => {
-            debugger;
+          data.destination.posts.forEach(function(p, i ){
             if(i == 0){
               var result = "<img class=active src=./../" + p.avatar.url + " " + "height=400 width=400>"} else {
                 var result = "<img src=./../" + p.avatar.url + " " + "height=400 width=400>"
@@ -39,7 +37,7 @@ function displayDesImages(){
 
       if(data.destination.posts.length > 0){
         $(".show_cards").html(" ");
-        data.destination.posts.forEach((p) => {
+        data.destination.posts.forEach(function(p){
           var post = new Post(p.avatar, p.car_rental, p.climate, p.content, p.diet, p.flight, p.id, p.title, p.total_cost, p.destination, p.user, p.pins, p.created_at)
           $(".show_cards").append(post.postCards())
         })

@@ -41,7 +41,7 @@ appendImage(){
     return `
     <a href='/posts/${this.id}/edit'>Update Post</a>`
   }else{
-    this.pins.forEach((pin)=>{
+    this.pins.forEach(function(pin){
       if(pin.user_id == result && this.user.id != result){
         return `<a href=/posts/${this.id}/pins>Pin Post</a>`
       }
@@ -88,7 +88,7 @@ function allBlogs(){
     method: 'get',
     success: function(data){
       $(".all-posts").html("")
-      data.forEach((p) => {
+      data.forEach(function(p){
         var post = new Post(p.avatar, p.car_rental, p.climate, p.content, p.diet, p.flight, p.id, p.title, p.total_cost, p.destination, p.user, p.pins)
         $(".all-posts").append(`<div class="container"><div class='blog-posts'>` + post.appendImage() + `</div></div>`)
       })
@@ -97,7 +97,6 @@ function allBlogs(){
 }
 
 function makePostTypeCall(ins){
-  debugger;
   $.ajax({
     url: `/posts/${ins}/inspiration.json`,
     method: "get",
