@@ -46,6 +46,7 @@ function displayDesImages(){
   })
 }
 
+
 function slideShow(){
   setInterval(function(){
   var active = $('.fade-group .active')
