@@ -13,4 +13,8 @@
  *= require_tree .
  *= require_self
  */
- 
+ /*html5 display rule  */
+
+ /*content, details, footer, header, nav, menu, section {
+   display: block;
+ }*/

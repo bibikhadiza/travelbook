@@ -29,9 +29,17 @@ $(document).on('turbolinks:load', function(){
     })
   });
 
-  if($(".devise_component").length || $(".login-box").length){
-    $("#footer").remove()
-    $("body").css({
+  // if($(".devise_component").length || $(".login-box").length){
+  //   $("#footer").remove()
+  //   $("body").css({
+  //     "background-image":  "url(../././assets/428242.jpg)",
+  //     'background-size': 'cover'
+  //   })
+  // }
+
+  if(document.getElementById("devise_component").length || document.getElementById("login-box").length;){
+    document.getElementById("footer").remove()
+    document.getElementsByTagName("body")[0].css({
       "background-image":  "url(../././assets/428242.jpg)",
       'background-size': 'cover'
     })
