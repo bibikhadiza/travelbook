@@ -42,6 +42,8 @@ $(document).on('turbolinks:load', function(){
     })
   }
 
+  
+
 
   if($(".devise_component").length){
     $('.root_page_content').html(" ")
