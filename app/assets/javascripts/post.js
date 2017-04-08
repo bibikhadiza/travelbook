@@ -27,7 +27,8 @@ appendImage(){
     var str = this.content
     if(str.length > 200) str = str.substring(0,200) + "...."
       var pic = this.avatar.url.split("/")
-      return "<div class=post>" +"<a href=/posts/" + this.id + "><div class=image id=" + this.id + " style='background-image: url(" + this.avatar.url + "')><div class=time><div class=date></div><div class=month></div></div></div><div class=content><h1>" + this.title + "</h1><p>" + str + "</p><div class=meta>" + action +"</div></a></div>"
+      return "<div class=post id=" + this.id + ">" +"<a href=/posts/" + this.id + "><div class=image id=" + this.id + " style='background-image: url(" + this.avatar.url + "')><div class=time><div class=date></div><div class=month></div></div></div><div class=content><h1>" + this.title + "</h1><p>" + str + "</p><div class=meta>" + action +"</div></a></div>"
+
   }
 
   postCards(){
